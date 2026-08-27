@@ -44,3 +44,11 @@ Last five operations: `grep "^## \[" log.md | tail -5`
 ## [2026-08-27] update | Added a "working from a code repo" section to CLAUDE.md (PROJECT_NOTES.md hard link, read one file not the vault)
 ## [2026-08-27] update | Added a "What does not belong in this vault" section to CLAUDE.md's Don't over-file rules
 ## [2026-08-27] update | Removed ClickUp from Kelly's contacts; recorded in her Revision History
+## [2026-08-27] ingest | Indexed the Claude.ai export (33 conversations) and triaged it; conversations not filed, only extracted
+## [2026-08-27] ingest | Created projects/redflagger/overview.md from the 2026-04-22 conversation
+## [2026-08-27] ingest | Created projects/mycentimo/overview.md from the 2026-06-30 conversation
+## [2026-08-27] update | Corrected research/affiliate-marketing.md: a live affiliate site already exists
+## [2026-08-27] update | Corrected projects/portfolio/overview.md: two usable case studies now exist
+## [2026-08-27] ingest | Filled personal/job-search/overview.md from the export's Apr-May 2026 job search (targets, channels, comp, drafting rules)
+## [2026-08-27] update | Rewrote research/n8n-automation.md: status planned to active, added patterns and five production gotchas
+## [2026-08-27] update | Added the productised-product alternative to research/ai-automation-agency.md

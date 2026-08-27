@@ -71,16 +71,31 @@ real content is a data-only swap later. Two standing rules:
 
 ## The real blocker
 
-The site is structurally finished and factually empty. No real case studies
-exist yet, and that is the only thing standing between this and a site worth
-sending to anyone.
+The site is structurally finished and factually empty. Filling it is the only
+thing standing between this and a site worth sending to anyone.
 
-The most obvious source of a real case study is
-[[clients/kelly/dictation-app/overview|Avelisse Dictation App]]: a shipped
-Android alpha, a full open-source licence and privacy audit, a rebrand, and a
-real concurrency bug found and fixed. That is a genuine piece of work. It needs
-Kelly's agreement before anything about it goes public, since it is her product
-and her brand.
+The `PRODUCT.md` in the repo says no real case studies exist. That is no longer
+true. Three candidates, in order of how easy they are to use:
+
+1. **[[projects/redflagger/overview|Redflagger]]** - live at redflagger.online,
+   entirely Vergel's own, nobody's permission needed. A shipped public product
+   with a real decision trail: idea selection, stack chosen against AdSense
+   constraints, a live dependency risk.
+2. **[[projects/mycentimo/overview|MyCentimo]]** - own project, three versions,
+   Next.js and Supabase, with genuinely interesting product decisions (guest
+   mode, confirm-don't-auto-post recurring transactions). Also nobody's
+   permission needed.
+3. **[[clients/kelly/dictation-app/overview|Avelisse Dictation App]]** - the
+   strongest engineering story: shipped Android alpha, full licence and privacy
+   audit, rebrand, a real concurrency bug root-caused and fixed. But it is
+   Kelly's product and her brand, so it needs her agreement before any of it
+   goes public.
+
+Note what this fixes. The site's whole pitch is that web development and
+workflow automation carry equal weight, and the Automations half was the harder
+one to evidence. The automation work that exists was done for other people, so
+publishing it is a permissions question rather than a writing question. Sort out
+what can be shown before designing around it.
 
 ## Related
 
@@ -93,3 +108,6 @@ and her brand.
 
 - 2026-08-27 - Page created. Written from the repo's `PRODUCT.md`,
   `package.json`, and `AGENTS.md` rather than from memory.
+- 2026-08-27 - Corrected the "no real case studies exist" claim. The Claude.ai
+  export surfaced two shipped own-projects, Redflagger and MyCentimo, neither of
+  which needs anyone's permission to write about.

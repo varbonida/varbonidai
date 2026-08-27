@@ -17,3 +17,7 @@ Format: `## [YYYY-MM-DD] <what changed> - <why it is major>`
 ## [2026-08-27] raw/inbox/ drop zone added - ingestion now moves files out of the inbox, so unprocessed sources are visible at a glance
 ## [2026-08-27] New top-level projects/ folder - own work now has a home separate from clients/
 ## [2026-08-27] New project: Portfolio Site - first entry under projects/, linked to its repo via PROJECT_NOTES.md
+## [2026-08-27] New project: Redflagger - live public product, first shipped own-project in the vault
+## [2026-08-27] New project: MyCentimo - money tracking PWA through three versions
+## [2026-08-27] Contradiction resolved - "no affiliate work started" and "no portfolio case studies" were both false
+## [2026-08-27] Contradiction resolved - n8n was recorded as "planned to learn" while production workflows already existed

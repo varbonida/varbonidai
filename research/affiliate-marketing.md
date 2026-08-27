@@ -9,8 +9,17 @@ aliases: [affiliate marketing, AI affiliate programs]
 
 # Affiliate Marketing
 
-Canonical page for the affiliate-marketing thread. Current state: researched, no
-niche picked, nothing built.
+Canonical page for the affiliate-marketing thread.
+
+**Current state:** the research below assumes starting from zero with no site
+and no audience. That framing is out of date. A live site already exists at
+redflagger.online, monetised through AdSense, with a therapy affiliate proposed
+on top of it. See [[projects/redflagger/overview|Redflagger]].
+
+So the real question is no longer "which niche do I start in", it is whether to
+build a second, SEO-first affiliate property as the research below describes, or
+push affiliate revenue through the traffic that already exists. Those are
+different amounts of work with different timelines.
 
 ## AI Affiliate Programs (Starting From Zero)
 
@@ -53,3 +62,13 @@ Niche not yet picked. Next decision: pick the niche first, or nail down the site
 - [[research/ai-automation-agency|AI Automation Agency]] - the other side-income
   direction, and a more direct fit for skills already being paid for
 - [[people/me|me]] - wider side-income context
+- [[projects/redflagger/overview|Redflagger]] - the live site where affiliate
+  revenue is actually on the table
+
+## Revision History
+
+- 2026-08-27 - Corrected. The page previously said "nothing started yet, no
+  niche picked", which came from the 2026-08-23 note. The Claude.ai export shows
+  redflagger.online was already live with AdSense and a proposed therapy
+  affiliate. The underlying research is still sound; only the "starting from
+  zero" premise was wrong.

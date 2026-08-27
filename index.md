@@ -32,19 +32,21 @@ Operating rules for this vault: [[CLAUDE|CLAUDE.md]].
 
 Vergel's own, not client work.
 
+- [[projects/redflagger/overview|Redflagger]] - live at redflagger.online
+- [[projects/mycentimo/overview|MyCentimo]] - money tracking PWA, v3, not launched
 - [[projects/portfolio/overview|Portfolio Site]] - active, in build, content still placeholder
 
 ## Research
 
 - [[research/ai-automation-agency|AI Automation Agency]] - 10 project patterns, researched
 - [[research/affiliate-marketing|Affiliate Marketing]] - researched, no niche picked
-- [[research/n8n-automation|n8n Automation]] - planned
+- [[research/n8n-automation|n8n Automation]] - active; patterns and gotchas from production work
 - [[research/ai-dropshipping|AI Dropshipping]] - planned
 - [[research/trading|Trading]] - dormant
 
 ## Personal
 
-- [[personal/job-search/overview|Job Search]] - resumes and cover letters
+- [[personal/job-search/overview|Job Search]] - paused; targets, channels, drafting rules
 
 ## Questions
 

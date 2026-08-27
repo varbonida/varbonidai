@@ -161,6 +161,22 @@ All 10 projects sell **revenue protection**, not new revenue: missed calls, dead
 
 **Positioning note (explicit):** Retaining an existing customer is easier than acquiring a new one, and reduced churn compounds into real money at scale. You are not selling a workflow here — you are selling **revenue protection**. Price accordingly.
 
+## Productised alternative: sell the system, not the service
+
+A separate 2026-05-11 thread explored the same skill sold a different way:
+automation systems packaged as digital products rather than delivered as
+client engagements. Tooling named was GoHighLevel, Zapier, Make, Notion,
+Airtable, and ChatGPT. The idea taken furthest was an Agency White-Label
+Suite, with a build plan, pricing strategy, and a 30-day launch plan.
+
+Worth holding next to the ten patterns above, because the economics are
+opposite. Agency work is high-touch, priced per client, and stops earning when
+you stop working. A productised system is built once and sold repeatedly, but
+carries support, updates, and marketing that agency work does not, and it only
+works if the buyer can install it without you.
+
+Nothing was built. Recorded so the option is not rediscovered from scratch.
+
 ## Caveats — treat as sales narrative, not researched fact
 
 - "Clients will pay 6 digits" — currency never specified; given the Filipino audience it's likely PHP, not USD, which changes the deal size by an order of magnitude.
@@ -186,3 +202,8 @@ All 10 projects sell **revenue protection**, not new revenue: missed calls, dead
   client, so the cashflow shape is completely different
 - [[research/ai-dropshipping|AI dropshipping]] - shares the automation tooling
 - [[people/me|me]] - wider side-income context
+
+## Revision History
+
+- 2026-08-27 - Added the productised-product alternative from the 2026-05-11
+  conversation in the Claude.ai export.
