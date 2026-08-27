@@ -39,6 +39,18 @@ than filed as transcripts.
   editing the wrong copy, and worth resolving.
 - Every future session starts by reading `CLAUDE.md`.
 
+## What was ported
+
+Complete as of 2026-08-27:
+
+- `02 Clients/Kelly` in full, including all audits and changelogs
+- `03 Prompts Library` to `prompts/`, with the hardcoded old-vault output
+  path in `audit-check.md` turned into a placeholder
+- `04 Notes` to `research/`
+- `00 Inbox/Notes.md` to [[concepts/project-notes-symlink|PROJECT_NOTES.md Symlink]];
+  the stale task fragment in it was dropped
+- `01 Portfolios` was empty, nothing to move
+
 ## Open
 
 - When is the old `obsidianvault` deleted or archived? Leaving it live invites

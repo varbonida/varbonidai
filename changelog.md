@@ -12,3 +12,8 @@ Format: `## [YYYY-MM-DD] <what changed> - <why it is major>`
 ## [2026-08-27] New decision: this vault replaces the old obsidianvault - single source of truth
 ## [2026-08-27] Kelly's 12 backlog items became planned projects - each now has a canonical page instead of a table row
 ## [2026-08-27] Onboarding complete, SETUP.md archived - CLAUDE.md is now the operating manual every session reads first
+## [2026-08-27] Prompt Library ported into prompts/ - new top-level layer beside the wiki, with its own rules in CLAUDE.md
+## [2026-08-27] New research topic: AI Automation Agency - 10 project patterns, the most developed side-income thread
+## [2026-08-27] raw/inbox/ drop zone added - ingestion now moves files out of the inbox, so unprocessed sources are visible at a glance
+## [2026-08-27] New top-level projects/ folder - own work now has a home separate from clients/
+## [2026-08-27] New project: Portfolio Site - first entry under projects/, linked to its repo via PROJECT_NOTES.md

@@ -332,4 +332,4 @@ Source files modified: 12 (post-audit fixes, applied at user request across foll
 - `DEVELOPMENT_AUDIO.md` (light touch: title, intro line, one table header)
 - `CLAUDE.md` (branding + a genuine path-bug fix + two operational items flagged inline rather than guessed)
 
-Audit saved: C:\Users\Vergel\Documents\development\obsidianvault\02 Clients\Kelly\01 Projects\Dictation App\IOS Audit.md
+Audit saved: `clients/kelly/dictation-app/audits/ios-audit.md` (this file).

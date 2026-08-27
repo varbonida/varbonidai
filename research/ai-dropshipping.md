@@ -28,3 +28,8 @@ the skills carry over rather than starting cold.
 ## Revision History
 
 - 2026-08-27 - Stub created during vault bootstrap.
+
+## Related
+
+- [[research/ai-automation-agency|AI Automation Agency]] - includes an
+  e-commerce product listing pattern that overlaps directly

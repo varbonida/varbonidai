@@ -22,9 +22,6 @@ Kelly. Same person. "Dr Citizen", "Eleanor Waves", "Wild by Choice", and
 - Phone / WhatsApp: +1 (303) 744-3100 (primary channel)
 - Email: simplevitality@gmail.com
 - Brand email: doc@drcitizen.com
-- Task tracking: ClickUp workspace at
-  https://app.clickup.com/90161729841/v/s/90167695545 (she has access as
-  simplevitality@gmail.com)
 
 ## Relationship & Working Style
 
@@ -94,3 +91,8 @@ move on most of them is a single clarifying question to Kelly, not scoping.
 
 - 2026-08-27 - Page created during vault bootstrap, consolidating the previous
   Kelly dashboard and the client message history.
+- 2026-08-27 - Task tracking removed. Was: a ClickUp workspace set up 2026-07-31
+  and shared with Kelly as simplevitality@gmail.com. Now: none recorded, no
+  longer in use. Source: Vergel, same day. Note that Kelly was invited to that
+  workspace and may still be checking it, so it is worth telling her it is dead
+  rather than leaving her looking at a stale board.

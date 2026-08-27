@@ -1,30 +1,55 @@
 ---
 type: research
-tags: [side-income, marketing, planned]
-created: 2026-08-27
+tags: [affiliate-marketing, seo, side-income, content]
+created: 2026-08-23
 updated: 2026-08-27
 status: planned
-aliases: [affiliate marketing]
+aliases: [affiliate marketing, AI affiliate programs]
 ---
 
 # Affiliate Marketing
 
-A side-income route Vergel intends to explore. Nothing started yet, no niche
-picked, no research done. This page exists so findings have a home the moment
-he starts looking.
+Canonical page for the affiliate-marketing thread. Current state: researched, no
+niche picked, nothing built.
 
-See [[people/me|me]] for the wider side-income context.
+## AI Affiliate Programs (Starting From Zero)
 
-## Why it is on the list
+## What it is
 
-Low upfront cost and it compounds, which suits someone building income streams
-alongside client work rather than instead of it.
+AI companies (Jasper, Writesonic, Synthesia, ElevenLabs, Murf AI, Copy.ai) give out a tracking link/code; you earn commission, often 15-30%, sometimes recurring monthly, when someone you referred signs up or subscribes. Anthropic and OpenAI don't run consumer affiliate programs. Access is usually direct signup with the company, or through a network like PartnerStack, Impact, Rewardful, or FirstPromoter.
 
-## Open
+## How the earning mechanics actually work
 
-- Nothing researched yet. First question worth answering: which niche, and
-  whether it is worth the time compared with billing hours to a client.
+Pick a niche, build one channel (blog/YouTube/newsletter), write comparison/review/tutorial content, get links approved and placed in it, track what converts and iterate. The bottleneck is traffic and trust, not which program pays the best rate.
 
-## Revision History
+## Recommended approach for starting with zero audience
 
-- 2026-08-27 - Stub created during vault bootstrap.
+- **One channel, not several.** SEO content over social — no need to be on camera, and it avoids splitting effort.
+- **Why SEO specifically:** search traffic is high-intent — someone searching "best AI tool for X" or "X vs Y" is close to buying. Social requires building trust from nothing first.
+- **Narrow niche, not broad.** "AI tools for freelance writers" is rankable and credible; "AI tools" generally is not.
+- **Concrete steps:** buy a domain, simple site, lead with comparison/"best of" posts (these convert), then add supporting how-to content for topical authority. Actually use the tools being reviewed — Google penalizes low-effort AI-slop reviews now. Publish consistently, 2-4 articles/week. Expect 3-6 months minimum before meaningful Google traffic.
+
+## Failure modes to avoid
+
+- Writing about everything instead of committing to one niche.
+- AI-generated content with no real testing or opinion behind it.
+- Quitting before month 3-4.
+- Not building an email list from day one — otherwise traffic is 100% dependent on Google.
+
+## Realistic expectation
+
+6-12 months before real money. Most people quit around month 2 with no payout yet.
+
+## Open question
+
+Niche not yet picked. Next decision: pick the niche first, or nail down the site/content setup first.
+
+---
+
+*Captured from a conversation in another session (`affiliate-71`) that wasn't flagged as a Note Candidate in the moment — recovered via cross-session recap on 2026-08-23.*
+
+## Related
+
+- [[research/ai-automation-agency|AI Automation Agency]] - the other side-income
+  direction, and a more direct fit for skills already being paid for
+- [[people/me|me]] - wider side-income context

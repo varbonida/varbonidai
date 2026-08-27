@@ -22,6 +22,10 @@ Conversations are a source of information, not the primary unit of memory.
 - `people/` — Vergel (`me.md`) and any recurring collaborators/contacts.
 - `clients/` — client relationships and projects. See "Client & project
   structure" below.
+- `projects/` — Vergel's own projects, the ones nobody is paying for. Same
+  shape as a client project: `projects/<project>/overview.md` is canonical,
+  supporting files beside it only when warranted. Anything with a paying
+  client belongs under `clients/`, never here.
 - `research/` — topics being actively explored in depth.
 - `concepts/` — standalone ideas/terms worth their own canonical page.
 - `personal/` — personal goals, self-improvement, and other durable personal
@@ -32,6 +36,8 @@ Conversations are a source of information, not the primary unit of memory.
   the question or its history has independent future value.
 - `decisions/` — significant decisions with independent future value beyond
   any single project. See "Decisions" below.
+- `prompts/` — the Prompt Library. Reusable AI prompts and instructions. Sits
+  beside the wiki, not inside it — see "The Prompt Library" below.
 - `index.md` — catalog of canonical knowledge pages and important entry
   points.
 - `log.md` — append-only operational history.
@@ -44,7 +50,8 @@ it rather than duplicating its information.
 
 - person → `people/`
 - client → `clients/<client>/overview.md`
-- project → `clients/<client>/<project>/overview.md`
+- client project → `clients/<client>/<project>/overview.md`
+- own project → `projects/<project>/overview.md`
 - research topic → `research/`
 - concept → `concepts/`
 - personal thread → `personal/`
@@ -64,16 +71,58 @@ The agent may:
 - read and analyze raw sources;
 - create links to raw sources;
 - extract knowledge from raw sources into canonical wiki pages;
-- organize newly added raw sources when explicitly instructed, provided the
-  original files themselves are not modified.
+- move a file **out of `raw/inbox/`** as the final step of ingesting it, and
+  only then. See "The inbox" below.
 
 The agent must not:
 
 - rewrite or "clean up" raw source content;
 - rename raw source files;
-- move raw source files between folders;
+- move raw source files that have already been filed out of the inbox;
 - delete raw source files;
 - overwrite a raw source with a summarized or processed version.
+
+### The inbox
+
+`raw/inbox/` is the drop zone. It is the only mutable part of `raw/`, and the
+only place the agent may move a file out of.
+
+```
+raw/
+├── inbox/                  # you drop files here
+├── clients/<client>/       # filed, frozen
+├── research/<topic>/       # filed, frozen
+├── personal/               # filed, frozen
+└── _setup-archive/         # filed, frozen
+```
+
+Filed sources mirror the wiki's top-level, so `raw/clients/kelly/` holds every
+source that fed Kelly's pages. Once a file leaves the inbox it is frozen
+permanently, exactly like the rest of `raw/`.
+
+Ingestion, in this order, because the order matters:
+
+1. Read the file in `raw/inbox/`.
+2. Decide where it belongs and extract the durable knowledge.
+3. **Move the file to its filed location first.**
+4. **Then** write the canonical pages, linking to the filed path.
+
+Steps 3 and 4 are that way round on purpose. Writing the links first and moving
+the file afterwards leaves every link pointing at an inbox path that no longer
+exists.
+
+Notes on the inbox:
+
+- An empty `raw/inbox/` means everything has been ingested. That is the whole
+  point of the drop zone: it makes "what still needs processing" visible at a
+  glance instead of something to remember.
+- Never move a file out of the inbox without ingesting it. The move is what
+  marks it done, so moving it early makes the inbox lie.
+- Filed does not mean off-limits to read. A source can be re-read any time,
+  including to extract something missed the first pass. Filed only means "this
+  file has been through ingestion once", never "this file is finished with".
+- Never ingest a file into a page without saying so in `log.md`. The log and the
+  inbox are the two independent records of what has been processed.
 
 If a raw source needs correction, transformation, or annotation, create a
 derived file outside the original source or record the information in the
@@ -154,6 +203,39 @@ Minor facts, temporary details, casual remarks, and one-off information
 should normally be absorbed into an existing page, logged in `log.md` if
 operationally relevant, or simply not stored at all. The goal is a useful
 second brain, not maximum documentation.
+
+### What does not belong in this vault
+
+Concrete cases, because the rule above is easy to agree with and hard to
+apply:
+
+- **Daily notes or a journal.** Chronological pages mean nothing is
+  canonical: the same fact scatters across nine dated entries, and "what is
+  the status of X" becomes "read six months of notes". `log.md` already
+  records what happened when. Never create a daily-note habit here.
+- **Task lists.** Where a client has their own tracker, that is where work
+  lives. A second task list in the vault disagrees with it within a week,
+  and the client is looking at the other one. The vault holds knowledge, the
+  tracker holds work. Status checkboxes on a project page are a snapshot of
+  where things stand, not a to-do list to maintain.
+- **Dataview, Templater, or any community plugin's syntax.** No community
+  plugins are installed and that is deliberate. A Dataview query is an
+  unreadable code block in plain Markdown, on GitHub, and to any agent that
+  is not rendering Obsidian. At this scale a hand-written list is better.
+- **Anything the repo already tells you.** File structure, dependency lists,
+  what a function does, what a commit changed. `git log` is better at that
+  and never goes stale. Analysis with conclusions in it (an audit, a
+  decision, a root cause) earns a page; an inventory of the codebase does
+  not.
+- **Binaries and deliverables.** APKs, PDFs, exported designs, video,
+  archives. Git keeps every version forever, so the repo never recovers from
+  them. Reference where they live instead: releases, drives, the client's
+  own systems.
+- **Course and tutorial notes that restate the documentation.** Write down
+  what surprised you, what you decided, and what broke. Not the parts that
+  can be re-read from the official docs in thirty seconds.
+- **Credentials of any kind**, including bank and payout details. See
+  "Vault-specific rules".
 
 ## New topics introduced through conversation
 
@@ -320,6 +402,26 @@ Update `## Voice & Style` on `people/me.md` **opportunistically**, only when
 a strong, useful example naturally comes up. Don't mine every conversation
 for voice/style signals.
 
+## Session-start workflow
+
+Nothing survives a session except what was written to a file. This file is the
+schema; it does not tell you the current state of anything. Load that first.
+
+At the start of every session, before doing any work or asking any questions:
+
+1. Read `index.md`. It is the map of what exists.
+2. Read the last few entries of `log.md`
+   (`grep "^## \[" log.md | tail -10`) to see what was recently worked on.
+3. Read the canonical page for whatever the session is about, if one exists.
+   Do not rely on what `index.md`'s one-line summary says a page contains.
+
+Do this even when the request looks self-contained. A question like "what's the
+status of the dictation app" has an answer on disk that is better than anything
+reconstructable from the conversation.
+
+If the human opens with something ambiguous, steps 1 and 2 usually resolve it
+without having to ask.
+
 ## Session-end workflow
 
 At the end of every meaningful session:
@@ -384,6 +486,60 @@ Code, Git. Do not introduce RAG, embeddings, databases, qmd, MCP servers, or
 other automation as *required* infrastructure — the vault must work without
 them. Search/index tooling can be added later if the vault grows enough to
 justify it (`index.md` is sufficient at this scale).
+
+## Working from a code repo instead of the vault
+
+A session running inside a code repo should not crawl the vault. The
+session-start workflow above is for vault sessions.
+
+Repos are linked to the vault with a hard link: `PROJECT_NOTES.md` in the repo
+root is the *same file* as the project's changelog page in the vault. Writing
+from either side writes to both, with no copying and no sync step.
+
+```
+mklink /H "<repo>\PROJECT_NOTES.md" "<vault>\projects\<project>\updates.md"
+```
+
+`/H` makes a hard link rather than a symlink, which survives editors that save
+by replacing a file. The command needs an elevated prompt, so the human runs it,
+not the agent.
+
+From inside a repo:
+
+- Read `PROJECT_NOTES.md` at session start. That is one file read, and it is
+  already the current vault state.
+- Read the project's `overview.md` in the vault only when the *why* behind a
+  decision actually matters. It is not session-start reading.
+- Log progress by appending to `PROJECT_NOTES.md`. It lands in the vault for
+  free.
+- Never copy vault context into the repo. A copy goes stale and then there are
+  two versions of the truth.
+
+If a repo has no `PROJECT_NOTES.md`, say so rather than guessing where to log.
+
+## The Prompt Library
+
+`prompts/` holds reusable AI prompts and instructions. It is deliberately not
+part of the wiki layer: a wiki page answers "what do I know about X", a prompt
+answers "how do I make an AI do X". Filing prompts under `research/` or
+`concepts/` would break the canonical-page principle, so they get their own
+folder instead.
+
+Rules:
+
+- One prompt per file, kebab-case filename.
+- Each file is frontmatter (`kind: prompt`, `category`, `tags`, `created`,
+  `updated`), then an H1, then a short description of what the prompt does and
+  when to use it, then the prompt itself inside a code fence.
+- The fenced block must be self-contained and copy-ready. Anything
+  situation-specific is a `<PLACEHOLDER>` the user fills in, never a hardcoded
+  path or client name.
+- `prompts/index.md` catalogs everything by category and keeps a "Recently
+  Added" list. Update it whenever a prompt is added or renamed.
+- `prompts/` is not listed page-by-page in `index.md`; the root index links to
+  `prompts/index.md` only.
+- Never file a prompt here just because it worked once. It belongs here when it
+  is genuinely reusable across projects.
 
 ## Vault-specific rules
 

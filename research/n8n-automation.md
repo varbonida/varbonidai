@@ -31,3 +31,8 @@ See [[clients/kelly/overview|Kelly]] for that backlog item, and
 ## Revision History
 
 - 2026-08-27 - Stub created during vault bootstrap.
+
+## Related
+
+- [[research/ai-automation-agency|AI Automation Agency]] - ten concrete project
+  patterns that n8n is the delivery mechanism for
