@@ -1,6 +1,6 @@
 ---
 type: research
-tags: [ai-automation, agency, business-ideas, n8n, side-income]
+tags: [automation, agency, business-ideas, n8n, side-income]
 created: 2026-08-25
 updated: 2026-08-27
 status: planned

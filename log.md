@@ -52,3 +52,7 @@ Last five operations: `grep "^## \[" log.md | tail -5`
 ## [2026-08-27] ingest | Filled personal/job-search/overview.md from the export's Apr-May 2026 job search (targets, channels, comp, drafting rules)
 ## [2026-08-27] update | Rewrote research/n8n-automation.md: status planned to active, added patterns and five production gotchas
 ## [2026-08-27] update | Added the productised-product alternative to research/ai-automation-agency.md
+## [2026-08-27] ingest | Ingested raw/inbox/Trading/The pre LIT Basic Master Map.pdf into research/trading.md; filed to raw/research/trading/
+## [2026-08-27] query | WALANG TITULO BY MB.pdf (88MB, scanned, no OCR tool available) left unprocessed in raw/inbox/Trading/
+## [2026-08-27] update | WALANG TITULO BY MB.pdf deleted unread by the human; noted on research/trading.md, inbox now empty
+## [2026-08-27] update | Aligned tags between research/n8n-automation.md and research/ai-automation-agency.md (ai-automation -> automation) so both surface under one tag

@@ -21,3 +21,4 @@ Format: `## [YYYY-MM-DD] <what changed> - <why it is major>`
 ## [2026-08-27] New project: MyCentimo - money tracking PWA through three versions
 ## [2026-08-27] Contradiction resolved - "no affiliate work started" and "no portfolio case studies" were both false
 ## [2026-08-27] Contradiction resolved - n8n was recorded as "planned to learn" while production workflows already existed
+## [2026-08-27] Trading revived from dormant - first real source material ingested via raw/inbox/

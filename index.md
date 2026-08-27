@@ -42,7 +42,7 @@ Vergel's own, not client work.
 - [[research/affiliate-marketing|Affiliate Marketing]] - researched, no niche picked
 - [[research/n8n-automation|n8n Automation]] - active; patterns and gotchas from production work
 - [[research/ai-dropshipping|AI Dropshipping]] - planned
-- [[research/trading|Trading]] - dormant
+- [[research/trading|Trading]] - active; Smart Money Concepts course material
 
 ## Personal
 
