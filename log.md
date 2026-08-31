@@ -56,3 +56,26 @@ Last five operations: `grep "^## \[" log.md | tail -5`
 ## [2026-08-27] query | WALANG TITULO BY MB.pdf (88MB, scanned, no OCR tool available) left unprocessed in raw/inbox/Trading/
 ## [2026-08-27] update | WALANG TITULO BY MB.pdf deleted unread by the human; noted on research/trading.md, inbox now empty
 ## [2026-08-27] update | Aligned tags between research/n8n-automation.md and research/ai-automation-agency.md (ai-automation -> automation) so both surface under one tag
+## [2026-08-28] ingest | Created projects/homemadeeasier/ (overview + updates) from the repo's README, package.json, and its one live post
+## [2026-08-28] update | Corrected research/affiliate-marketing.md: status planned to active, added Home Made Easier as the second live implementation
+## [2026-08-28] update | Added a vault pointer to homemadeeasier/CLAUDE.md (PROJECT_NOTES.md not yet linked)
+## [2026-08-28] ingest | Ingested raw/inbox/08-28-2026.md (Claude.ai conversation, Home Made Easier planning) into projects/homemadeeasier/; filed to raw/projects/homemadeeasier/
+## [2026-08-28] update | Rewrote projects/homemadeeasier/overview.md with growth strategy, content pillars, architecture, and design direction
+## [2026-08-28] ingest | Created projects/homemadeeasier/decisions.md (7 decisions: distribution channel, linking rule, niche/audience, naming, stack choice, feature scope, design mode)
+## [2026-08-29] ingest | Added prompts/pinterest-pin-package.md, first entry in a new Marketing category
+## [2026-08-29] ingest | Added prompts/tiktok-affiliate-storyboard.md to the Marketing category
+## [2026-08-29] ingest | Added prompts/tiktok-affiliate-video-generation.md; cross-linked as stage 2 of the storyboard prompt's pipeline
+## [2026-08-29] update | Rewrote prompts/tiktok-affiliate-storyboard.md: single consolidated image instead of two separate outputs, now matching what the video-generation prompt already expected
+## [2026-08-31] ingest | Created clients/kelly/dictation-app/meeting-notes.md - presentation prep for the 2026-09-01 call with Kelly, scoped to Android/iOS, plain-language
+## [2026-08-31] update | Linked meeting-notes.md from clients/kelly/dictation-app/overview.md's Supporting Files
+## [2026-08-31] query | Audited all four PROJECT_NOTES.md hard links: only portfolio/varbonida was real; homemadeeasier, avelisse-android, avelisse-ios were all unlinked plain files
+## [2026-08-31] update | Merged homemadeeasier's real drift (GitLab merge conflict fix, "The Exposed Binding" design pass, a sidebar layout bug) into projects/homemadeeasier/updates.md
+## [2026-08-31] update | Corrected projects/homemadeeasier/overview.md and decisions.md: design direction is "The Exposed Binding", not the sage/warm-neutral palette named in planning, which was never built
+## [2026-08-31] update | Added a caveat to concepts/project-notes-symlink.md: a coding agent falsely claimed to have fixed a broken link; verify with inode comparison, never trust the claim
+## [2026-08-31] update | Removed the three fake PROJECT_NOTES.md files so real hard links can be created; mklink needs an elevated prompt, which this session does not have - commands handed to the human
+## [2026-08-31] query | Checked avelisse-android/ios repos via git log for undocumented work; found the iOS repo has real work today (2026-08-31) not yet in the vault
+## [2026-08-31] update | Recorded the iOS technical identity rebrand (bundle ID, App Group) completed 2026-08-31 in updates-ios.md, overview.md, and meeting-notes.md
+## [2026-08-31] query | Confirmed the new mklink attempt on avelisse-android/ios still did not create real hard links (Links: 1 on both sides, not 2); commands handed back to the human
+## [2026-08-31] update | Found and merged a duplicate 2026-08-31 heading in updates-ios.md - two separate untracked edits landed once the real hard link was created; kept the more complete/accurate version
+## [2026-08-31] update | Added URL scheme, Xcode project rename, and the "Dictus" file/display names still untouched to overview.md's iOS checklist
+## [2026-08-31] query | Confirmed avelisse-android and avelisse-ios PROJECT_NOTES.md are now genuine hard links (matching inode, link count 2 on both sides)

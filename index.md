@@ -33,6 +33,7 @@ Operating rules for this vault: [[CLAUDE|CLAUDE.md]].
 Vergel's own, not client work.
 
 - [[projects/redflagger/overview|Redflagger]] - live at redflagger.online
+- [[projects/homemadeeasier/overview|Home Made Easier]] - affiliate blog, early build
 - [[projects/mycentimo/overview|MyCentimo]] - money tracking PWA, v3, not launched
 - [[projects/portfolio/overview|Portfolio Site]] - active, in build, content still placeholder
 

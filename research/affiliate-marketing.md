@@ -3,7 +3,7 @@ type: research
 tags: [affiliate-marketing, seo, side-income, content]
 created: 2026-08-23
 updated: 2026-08-27
-status: planned
+status: active
 aliases: [affiliate marketing, AI affiliate programs]
 ---
 
@@ -16,10 +16,12 @@ and no audience. That framing is out of date. A live site already exists at
 redflagger.online, monetised through AdSense, with a therapy affiliate proposed
 on top of it. See [[projects/redflagger/overview|Redflagger]].
 
-So the real question is no longer "which niche do I start in", it is whether to
-build a second, SEO-first affiliate property as the research below describes, or
-push affiliate revenue through the traffic that already exists. Those are
-different amounts of work with different timelines.
+The "second, SEO-first affiliate property" question has since been answered by
+action rather than decision: [[projects/homemadeeasier/overview|Home Made
+Easier]] is exactly that, built in a physical-goods niche (kitchen, garden,
+home) through Amazon Associates rather than the AI-tools niche this research
+explored. So there are now two live implementations of this research, in two
+different niches and monetisation models, plus this original research page.
 
 ## AI Affiliate Programs (Starting From Zero)
 
@@ -62,8 +64,10 @@ Niche not yet picked. Next decision: pick the niche first, or nail down the site
 - [[research/ai-automation-agency|AI Automation Agency]] - the other side-income
   direction, and a more direct fit for skills already being paid for
 - [[people/me|me]] - wider side-income context
-- [[projects/redflagger/overview|Redflagger]] - the live site where affiliate
-  revenue is actually on the table
+- [[projects/redflagger/overview|Redflagger]] - AdSense plus a proposed therapy
+  affiliate, software/wellness niche
+- [[projects/homemadeeasier/overview|Home Made Easier]] - Amazon Associates,
+  physical-goods niche, applying the SEO-first approach this page describes
 
 ## Revision History
 

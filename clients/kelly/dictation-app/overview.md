@@ -2,7 +2,7 @@
 type: project
 tags: [kelly, dictation-app, avelisse, android, ios, mobile]
 created: 2026-08-04
-updated: 2026-08-27
+updated: 2026-08-31
 status: active
 aliases: [Avelisse Dictation App, AVELISSE, Dictation App, Dictus rebrand]
 ---
@@ -19,11 +19,13 @@ property. Final brand name is still unconfirmed.
 ## Status
 
 - **Current phase:** Android rebrand largely complete and in alpha; iOS design
-  ported but technical rebrand not started and unbuildable locally.
+  and technical identity rebrand both done at the source level, but nothing on
+  iOS has been built, run, or verified - still unbuildable locally.
 - **Android:** v1.0.0-alpha released 2026-08-25, awaiting Kelly's test.
   Repo: https://github.com/varbonida/avelisse-android (branch `develop`)
-- **iOS:** repo forked, docs and colour system rewritten, but bundle IDs and App
-  Group are still the upstream Dictus identifiers.
+- **iOS:** repo forked, docs and colour system rewritten, technical identity
+  rebrand (bundle ID, App Group) completed 2026-08-31. None of it has been
+  compiled, run, or verified yet - that still needs a Mac.
   Repo: https://github.com/varbonida/avelisse-ios
 - **Desktop:** research only. [Handy](https://handy.computer/) selected.
 - **Blocker:** iOS cannot be built or verified from a Windows machine. See
@@ -43,6 +45,7 @@ audits and changelogs refer to the upstream author, not a collaborator.
 ## Supporting Files
 
 - [[clients/kelly/dictation-app/decisions|Decisions]] - what was decided and why
+- [[clients/kelly/dictation-app/meeting-notes|Meeting Notes]] - call prep and outcomes
 - [[clients/kelly/dictation-app/updates-android|Android updates]] - engineering changelog
 - [[clients/kelly/dictation-app/updates-ios|iOS updates]] - engineering changelog
 - [[clients/kelly/dictation-app/audits/android-audit|Android Audit]] (2026-08-19) - commercial distribution
@@ -146,13 +149,20 @@ Repository and branding
 - [x] Implement the colour system across screens and components
 - [ ] Re-theme the Live Activity widget and the cold-start swipe-back overlay,
       both deliberately left on the old palette
-- [ ] Replace app name, icons, and remaining Dictus references in UI
+- [ ] Replace app name, icons, and remaining Dictus references in UI - display
+      name is still "Dictus"; file/type names (`DictusApp.swift`, `DictusCore`,
+      etc.) also untouched, deliberately kept out of the 2026-08-31 identity
+      pass
 
 Application identity
 
-- [ ] Change bundle IDs (still `com.pivi.dictus*`)
-- [ ] Create and configure own App Group identifier (still `group.solutions.pivi.dictus`)
-- [ ] Update App Group references and verify keyboard/app communication
+- [x] Change bundle IDs (`com.pivi.dictus*` to `dev.avelissesolutions.avelisse*`, 2026-08-31)
+- [x] Create and configure own App Group identifier (`group.dev.avelissesolutions.avelisse`, 2026-08-31)
+- [x] Change the URL scheme (`dictus://` to `avelisse://`, matching the domain
+      root Android already uses) and rename the Xcode project, targets, and
+      schemes (`Dictus.xcodeproj` to `Avelisse.xcodeproj`), 2026-08-31
+- [ ] Verify keyboard/app communication actually works under the new identifiers
+      - needs a real build, which needs a Mac
 
 Apple Developer and testing
 

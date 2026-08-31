@@ -22,3 +22,7 @@ Format: `## [YYYY-MM-DD] <what changed> - <why it is major>`
 ## [2026-08-27] Contradiction resolved - "no affiliate work started" and "no portfolio case studies" were both false
 ## [2026-08-27] Contradiction resolved - n8n was recorded as "planned to learn" while production workflows already existed
 ## [2026-08-27] Trading revived from dormant - first real source material ingested via raw/inbox/
+## [2026-08-28] New project: Home Made Easier - second live affiliate property, physical-goods niche via Amazon Associates
+## [2026-08-28] Home Made Easier - full strategy documented (Pinterest-first growth, moms niche, deliberate scale architecture, design direction), not just a stack summary
+## [2026-08-31] Found and corrected a false "link fixed" claim from a coding agent - real design decision (Home Made Easier's actual visual direction) had never reached the vault
+## [2026-08-31] iOS technical rebrand completed - bundle ID and App Group now match the app's own identity, resolving a checklist item open since the project started

@@ -6,7 +6,7 @@ platform: ios
 scope: commercial distribution (license, AI models, privacy, security, branding, App Store)
 tags: [kelly, dictation-app, ios, audit, licensing]
 created: 2026-08-25
-updated: 2026-08-25
+updated: 2026-08-31
 ---
 
 # AVELISSE iOS — Commercial Distribution Audit
@@ -18,11 +18,15 @@ Method: read-only static audit of the local checkout (origin=varbonida/avelisse-
 
 **Update, same day**: the Parakeet/NVIDIA license ambiguity noted below as a blocker has since been resolved, and README.md/PRD.md have been rewritten to remove the false "free, open-source, MIT" framing — see "Fixed since audit."
 
+**Update, 2026-08-31**: the technical rebrand (Bundle ID, App Group, URL scheme, Xcode project/targets/schemes, top-level folders) has been completed — see "Fixed since audit," item 13. The Application Identity Audit, Keyboard & App Group Audit, and Recommended Pre-Release Actions sections below still describe the *pre-rebrand* state where explicitly marked; treat item 13 as the current source of truth for identifiers.
+
 ---
 
 ## Executive Summary
 
-This fork is, as of this snapshot, **byte-for-byte identical in substance** to the upstream open-source "Dictus" project — no rebrand has actually happened yet. All internal identifiers (bundle IDs `com.pivi.dictus*`, App Group `group.solutions.pivi.dictus`, URL scheme `dictus://`, Xcode targets, folder names) and all documentation (README, PRD, PRIVACY, CLAUDE.md, etc.) are still 100% "Dictus"/"PIVI Solutions" branded, including live links to `getdictus.com`, `github.com/getdictus`, and `hello@getdictus.com`.
+This fork was, as of the initial 2026-08-25 snapshot, **byte-for-byte identical in substance** to the upstream open-source "Dictus" project — no rebrand had happened yet. All internal identifiers (bundle IDs `com.pivi.dictus*`, App Group `group.solutions.pivi.dictus`, URL scheme `dictus://`, Xcode targets, folder names) and all documentation (README, PRD, PRIVACY, CLAUDE.md, etc.) were still 100% "Dictus"/"PIVI Solutions" branded, including live links to `getdictus.com`, `github.com/getdictus`, and `hello@getdictus.com`.
+
+**As of 2026-08-31, the technical identifiers have been rebranded** (Bundle ID, App Group, URL scheme, Xcode project/targets/schemes, top-level folders — see "Fixed since audit," item 13). What's still "Dictus"-branded today is narrower: source-level symbol/file names (`DictusApp.swift`, `import DictusCore`, etc.), `CFBundleDisplayName`/on-device keyboard name, and the documentation prose/placeholders described below.
 
 The good news: the app's core privacy claim — 100% on-device, no telemetry, no cloud — checks out under code inspection. No analytics/crash-reporting SDK exists anywhere, no transcript history is persisted, and audio is processed in memory without ever touching disk. No hardcoded secrets were found.
 
@@ -72,7 +76,20 @@ Five changes were applied after the initial read-only pass, at the user's explic
 11. **`DEVELOPMENT_AUDIO.md`** — light touch, same reasoning as `CONTEXT.md`/`KEYBOARD_BRIEFING.md`. Pure technical architecture doc (audio pipeline, STT engine abstraction), no pricing/license claims, no dead links. Title, intro line, and one table header changed to Avelisse; all file paths and code references left untouched since they're real.
 12. **`CLAUDE.md`** — different in kind from every other doc rewritten so far: this is live operational config actually loaded and acted on by Claude Code sessions working in this repo, not just descriptive documentation, so it got more scrutiny rather than a mechanical branding pass. Changes: title and project description updated to Avelisse (and now correctly mentions FluidAudio/Parakeet, which the original line omitted despite the Stack section below listing it); fixed a **pre-existing path bug** unrelated to the rebrand — the asset-generation instructions pointed to `Dictus/Assets.xcassets/AppIcon.appiconset/`, which doesn't exist, the real path is `DictusApp/Assets.xcassets/AppIcon.appiconset/` (confirmed against the actual repo structure in the Assets & Fonts Audit above); added a note that the brand kit (`assets/brand/dictus-brand-kit.html`) is the inherited Dictus visual identity, not yet an Avelisse-specific one. **Two items flagged rather than silently changed or left alone**, since guessing wrong here would misdirect a future agent session, not just read oddly: (a) the issue-tracker repo was changed from `getdictus/dictus-ios` to `varbonida/avelisse-ios` (matching this fork's actual git `origin`) with an inline note to revert if Avelisse issues are actually still tracked upstream; (b) the "Contexte utilisateur" section assuming the developer is "Pierre" (the original Dictus author) was left as-is but flagged with a note that this should be reconfirmed if someone else is now driving Avelisse's development — I have no way to know who that is.
 
-**Not fixed by this pass** — the sound-effect files' license/provenance remains the sole 🔴 blocker (see below). Every doc originally flagged in the Documentation Audit has now been addressed. The placeholders across README/PRD/PRIVACY/CONTRIBUTING/DEVELOPMENT (`[PRICING TBD]`, `[WEBSITE_URL]`, `[SUPPORT_EMAIL]`, `[TESTFLIGHT_LINK]`, `[GITHUB_REPO_URL]`, `[PRIVACY_POLICY_URL]`) still need real values, the technical rebrand (new Bundle ID/App Group) is still pending, and the two flagged CLAUDE.md items above still need a human answer — the fix here was removing false/stale/wrong claims, not finalizing the decisions behind them.
+**Technical rebrand (1 change, 2026-08-31, fifth follow-up request):**
+
+13. **Completed the technical rebrand** flagged as unfinished throughout this audit (Executive Summary, 🟡 Check, Application Identity Audit, Keyboard & App Group Audit, Recommended Pre-Release Action #6). All internal identifiers were changed together as one coordinated pass, matching the identifier root the sibling Android app (`avelisse-android`) had already committed to:
+    - **Bundle IDs**: `com.pivi.dictus` → `dev.avelissesolutions.avelisse` (app), `.keyboard`, `.widgets` (suffixes unchanged).
+    - **App Group**: `group.solutions.pivi.dictus` → `group.dev.avelissesolutions.avelisse`, updated in all 3 entitlements files and the single source of truth (`AppGroup.swift`).
+    - **URL scheme**: `dictus://` → `avelisse://`, including the app's `onOpenURL` scheme gate, the keyboard's cold-start deep-link trigger, and all Live Activity/widget links.
+    - **Xcode project**: `Dictus.xcodeproj` → `Avelisse.xcodeproj`; all three targets and schemes renamed (`DictusApp`/`DictusKeyboard`/`DictusWidgets` → `AvelisseApp`/`AvelisseKeyboard`/`AvelisseWidgets`), hand-edited directly in `project.pbxproj` — there's no Mac/Xcode in this environment to do it through the IDE. Brace/paren balance was checked as a structural sanity check, but **the user still needs to open it in Xcode to confirm it actually parses** before trusting this is fully correct.
+    - **Top-level folders**: all renamed (`DictusApp/`, `DictusKeyboard/`, `DictusWidgets/`, `DictusCore/`, plus the loose `Dictus/Sounds/` folder → `Avelisse/Sounds/`).
+
+    Three regressions the rename would otherwise have caused silently were caught and fixed in the same pass: the two `identifier.contains("com.pivi.dictus")` keyboard-installed detection checks flagged in the Keyboard & App Group Audit below (`KeyboardSetupPage.swift`, `GlobeKeyTutorialPage.swift`), a unit test asserting the old App Group string, and six `dictus://` deep-link URLs (app, keyboard, Live Activity) that would have silently stopped opening once `Info.plist` no longer registered that scheme. `.github/workflows/ci.yml`, the language-onboarding dev tooling (`tools/onboard_language.py`, `tools/ngram_builder.py`), `.swiftlint.yml`, and the copy-pasteable setup commands in `README.md`/`DEVELOPMENT.md`/`docs/agents/language-onboarding.md` were also updated to match.
+
+    **Deliberately not touched** (separate from this pass, not part of what was requested): source-level symbol/file names still say "Dictus" (`DictusApp.swift`, `import DictusCore`, `DictusColors.swift`, the `dictus_trie.cpp` engine, etc.), and `CFBundleDisplayName`/the on-device keyboard name is still literally "Dictus" — that's a cosmetic source rebrand, distinct from the identifier change made here. Apple Developer Portal / App Store Connect registration of the new bundle IDs and App Group (a manual account-level action, not doable from a repo checkout) is still outstanding — see Apple/App Store Audit below.
+
+**Not fixed by this pass** — the sound-effect files' license/provenance remains the sole 🔴 blocker (see below). Every doc originally flagged in the Documentation Audit has now been addressed. The placeholders across README/PRD/PRIVACY/CONTRIBUTING/DEVELOPMENT (`[PRICING TBD]`, `[WEBSITE_URL]`, `[SUPPORT_EMAIL]`, `[TESTFLIGHT_LINK]`, `[GITHUB_REPO_URL]`, `[PRIVACY_POLICY_URL]`) still need real values, and the two flagged CLAUDE.md items above still need a human answer — the fix here was removing false/stale/wrong claims, not finalizing the decisions behind them. The technical rebrand itself is done in source (item 13 above), but Apple Developer Portal/App Store Connect registration is a separate, still-pending manual step.
 
 ---
 
@@ -95,7 +112,7 @@ Five changes were applied after the initial read-only pass, at the user's explic
 
 - **`CLAUDE.md` has two flagged operational items needing a human decision**: whether the issue tracker should point at `varbonida/avelisse-ios` (changed) or stay on upstream `getdictus/dictus-ios`, and whether the "Contexte utilisateur" section's assumption that the developer is "Pierre" (the original Dictus author) still holds for Avelisse. Both were flagged inline in the file rather than guessed.
 - **README.md, PRD.md, PRIVACY.md, CONTRIBUTING.md, and DEVELOPMENT.md now contain explicit placeholders** (`[PRICING TBD]`, `[WEBSITE_URL]`, `[SUPPORT_EMAIL]`, `[TESTFLIGHT_LINK]`, `[GITHUB_REPO_URL]`, `[PRIVACY_POLICY_URL]`, and a new Bundle ID placeholder in DEVELOPMENT.md) instead of false claims — correct as an interim state, but these need real values decided and filled in before public launch.
-- **`DEVELOPMENT.md` still contains literal `com.pivi.dictus`/`group.solutions.pivi.dictus`/"Dictus" references in its step-by-step Xcode and iOS Settings instructions** — deliberately left as-is since those are technically accurate to the app's current unrebranded state; they'll need updating once (and only once) the technical rebrand actually happens, not before.
+- **`DEVELOPMENT.md`'s historical "how this Xcode project was originally created" and "add the keyboard in Settings" sections still describe `com.pivi.dictus`/"Dictus"** — these were deliberately left untouched during the earlier doc pass as *accurate to the app's then-current state*, but that's no longer true now that the technical rebrand (item 13) has actually happened. They now need a pass to either update them to the new identifiers or explicitly mark them as describing the pre-rebrand history — currently stale, not yet fixed.
 - **FluidAudio's own LICENSE file is an unfilled Apache-2.0 template** (`Copyright [yyyy] [name of copyright owner]`), with no NOTICE file in the upstream repo — the copyright holder is genuinely undocumented upstream. Get this clarified directly with FluidInference before finalizing your own third-party-license document.
 - **Dictionary/n-gram resource files** (`DictusKeyboard/Resources/*_frequency.json`, `*_ngrams.dict`, `*_spellcheck.dict`) are built from Lexique 3.83 (French academic lexicon) and Google 1T/COCA (English) via in-repo tools (`tools/dict_builder.py`, `tools/ngram_builder.py`). Redistribution terms of these *source corpora* for the derived, filtered word lists were not independently re-verified.
 - **HeliBoard (GPL-3.0)** is named in `.planning/phases/24.1-*` docs as a design/architecture reference for the AOSP-style trie engine (`DictusKeyboard/Vendored/AOSPTrie/`). Project docs describe this as an explicit clean-room reimplementation, not copied code — worth one more manual pass given HeliBoard is copyleft.
@@ -118,7 +135,7 @@ Five changes were applied after the initial read-only pass, at the user's explic
 
 - **Sound effect files have zero documented license or provenance** (`Dictus/Sounds/*.wav`, 29 files) — cannot confirm commercial-use safety until sourced; if these came from a paid or restrictively-licensed sound pack, they cannot ship in a commercial product without a license. Investigated further (commit history, PR text, `.planning` docs, filename search) with no result — provenance is untraceable from the repo itself; needs either tracking down the original human source or replacing the files outright.
 
-Resolved since the initial audit — no longer blockers, see "Fixed since audit" above: the Parakeet/NVIDIA model license ambiguity, the FluidAudio/NVIDIA misattribution in `LicensesView.swift`, the hardcoded App Group identifier in `AOSPTrieEngine.swift`, and the false "free, open-source, MIT" framing across every doc in the repo (`README.md`/`PRD.md`/`PRIVACY.md`/`CONTRIBUTING.md`/`CONTEXT.md`/`DEVELOPMENT.md`/`KEYBOARD_BRIEFING.md`/`DEVELOPMENT_AUDIO.md`/`CLAUDE.md`).
+Resolved since the initial audit — no longer blockers, see "Fixed since audit" above: the Parakeet/NVIDIA model license ambiguity, the FluidAudio/NVIDIA misattribution in `LicensesView.swift`, the hardcoded App Group identifier in `AOSPTrieEngine.swift`, the false "free, open-source, MIT" framing across every doc in the repo (`README.md`/`PRD.md`/`PRIVACY.md`/`CONTRIBUTING.md`/`CONTEXT.md`/`DEVELOPMENT.md`/`KEYBOARD_BRIEFING.md`/`DEVELOPMENT_AUDIO.md`/`CLAUDE.md`), and the technical rebrand of Bundle ID/App Group/URL scheme/Xcode project/top-level folders (2026-08-31, item 13).
 
 Downgraded to 🟡 Check: the `[PRICING TBD]`/placeholder values spread across README/PRD/PRIVACY/CONTRIBUTING/DEVELOPMENT still need real answers, and `CLAUDE.md` has two flagged operational items (issue-tracker repo, developer persona) that need a human decision — see 🟡 Check.
 
@@ -197,17 +214,31 @@ No telemetry, analytics, or crash-reporting endpoint exists anywhere. All live n
 
 ## Application Identity Audit
 
-**Current identifiers** (all still "Dictus"/"PIVI" branded):
+**Identifiers as of the 2026-08-25 snapshot** (all still "Dictus"/"PIVI" branded at that point):
 
-| Item | Current value |
-|---|---|
-| Bundle ID — DictusApp | `com.pivi.dictus` |
-| Bundle ID — DictusKeyboard | `com.pivi.dictus.keyboard` |
-| Bundle ID — DictusWidgets | `com.pivi.dictus.widgets` |
-| App Group | `group.solutions.pivi.dictus` |
-| URL scheme | `dictus://` |
-| Xcode project / schemes | `Dictus.xcodeproj`; `DictusApp`/`DictusKeyboard`/`DictusWidgets` schemes and targets |
-| Top-level folders | `DictusApp/`, `DictusKeyboard/`, `DictusCore/`, `DictusWidgets/` |
+| Item                       | Value at initial audit (2026-08-25)                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------ |
+| Bundle ID — DictusApp      | `com.pivi.dictus`                                                                    |
+| Bundle ID — DictusKeyboard | `com.pivi.dictus.keyboard`                                                           |
+| Bundle ID — DictusWidgets  | `com.pivi.dictus.widgets`                                                            |
+| App Group                  | `group.solutions.pivi.dictus`                                                        |
+| URL scheme                 | `dictus://`                                                                          |
+| Xcode project / schemes    | `Dictus.xcodeproj`; `DictusApp`/`DictusKeyboard`/`DictusWidgets` schemes and targets |
+| Top-level folders          | `DictusApp/`, `DictusKeyboard/`, `DictusCore/`, `DictusWidgets/`                     |
+
+**Current identifiers, since 2026-08-31** (see "Fixed since audit," item 13):
+
+| Item                          | Current value                                                                                     |
+| ------------------------------ | --------------------------------------------------------------------------------------------------- |
+| Bundle ID — AvelisseApp        | `dev.avelissesolutions.avelisse`                                                                    |
+| Bundle ID — AvelisseKeyboard   | `dev.avelissesolutions.avelisse.keyboard`                                                           |
+| Bundle ID — AvelisseWidgets    | `dev.avelissesolutions.avelisse.widgets`                                                            |
+| App Group                      | `group.dev.avelissesolutions.avelisse`                                                              |
+| URL scheme                     | `avelisse://`                                                                                       |
+| Xcode project / schemes        | `Avelisse.xcodeproj`; `AvelisseApp`/`AvelisseKeyboard`/`AvelisseWidgets` schemes and targets        |
+| Top-level folders              | `AvelisseApp/`, `AvelisseKeyboard/`, `AvelisseCore/`, `AvelisseWidgets/`                             |
+
+Not yet done: Apple Developer Portal/App Store Connect registration of these new identifiers (new app record, new provisioning) — a manual account-level step, separate from the source-level rename above.
 
 **1. Safe to replace** (cosmetic branding, no legal weight): UI-visible strings across `Onboarding/`, `SettingsView.swift`, `DictusLiveActivity.swift`; all "Dictus"-branded keys in both `Localizable.xcstrings` catalogs; Swift symbol names (`DictusColors`, `DictusLogo`, `DictusTypography`, `.dictusAccent` etc. — mechanical rename); brand SVG/HTML asset files; product-name mentions across README/PRD/CLAUDE.md/etc.
 
@@ -219,7 +250,7 @@ No telemetry, analytics, or crash-reporting endpoint exists anywhere. All live n
 
 **5. Historical/documentation references** (low priority, not shipped): the entire `.planning/` tree (milestones, phases, retrospectives) — hundreds of incidental "Dictus"/"pivi" mentions, purely internal project history.
 
-**6. Needs manual review** (technical consequences beyond branding): bundle IDs (changing breaks existing TestFlight/App Store installs and requires new App Store Connect app records), the App Group identifier (changing breaks shared-container continuity for app/keyboard/widgets — and note the hardcoded bypass in `AOSPTrieEngine.swift:207` flagged as a 🔴 blocker above), the `dictus://` URL scheme (used by Live Activity deep links, referenced in both `Info.plist` and `DictusLiveActivity.swift`), and the Xcode project/scheme/target/module names themselves (large mechanical Xcode refactor with real risk of breaking the build if done carelessly).
+**6. Needs manual review — done in source, 2026-08-31** (technical consequences beyond branding): bundle IDs, App Group identifier, `dictus://` URL scheme, and the Xcode project/scheme/target names have all been changed in source — see "Fixed since audit," item 13. What's still outstanding is the account-level side: registering the new bundle IDs and App Group in the Apple Developer Portal, new App Store Connect app records (bundle ID cannot be changed on an existing app after first submission), and regenerated provisioning profiles — none of that is doable from a repo checkout.
 
 ## Apple / App Store Audit
 
@@ -238,7 +269,7 @@ No telemetry, analytics, or crash-reporting endpoint exists anywhere. All live n
 
 The keyboard extension cannot run WhisperKit directly (its ~50MB memory ceiling), so it delegates recording/transcription to the containing app via `DarwinNotificationCenter` (start/stop/cancel pings) with payloads exchanged through the shared App Group `UserDefaults`. If the app doesn't acknowledge within ~500ms (e.g., not running), the keyboard falls back to force-launching the app via the `dictus://dictate?source=keyboard` URL scheme. This is a reasonable but inherently fragile architecture — it depends on the app being backgrounded rather than fully suspended/killed for the fast path, and on the URL scheme staying correctly wired for the cold-start fallback.
 
-**Rebrand landmine — fixed**: `DictusKeyboard/TextPrediction/AOSPTrieEngine.swift:207` previously hardcoded `UserDefaults(suiteName: "group.solutions.pivi.dictus")` directly, bypassing the shared `AppGroup.identifier` constant used everywhere else in the codebase. This was the single call site most likely to be missed during a rebrand (silent failure — a disconnected, orphaned App Group container — rather than a crash). Now fixed to reference `AppGroup.identifier`, see "Fixed since audit." Two other locations (`KeyboardSetupPage.swift`, `GlobeKeyTutorialPage.swift`) check for `identifier.contains("com.pivi.dictus")` for keyboard-installed detection — lower risk since they're informational checks, but should be updated in the same pass.
+**Rebrand landmine — fixed**: `AvelisseKeyboard/TextPrediction/AOSPTrieEngine.swift:207` (then `DictusKeyboard/...`) previously hardcoded `UserDefaults(suiteName: "group.solutions.pivi.dictus")` directly, bypassing the shared `AppGroup.identifier` constant used everywhere else in the codebase. This was the single call site most likely to be missed during a rebrand (silent failure — a disconnected, orphaned App Group container — rather than a crash). Now fixed to reference `AppGroup.identifier`, see "Fixed since audit." Two other locations (`KeyboardSetupPage.swift`, `GlobeKeyTutorialPage.swift`) checked for `identifier.contains("com.pivi.dictus")` for keyboard-installed detection — flagged here as lower-risk informational checks, and now fixed in the same technical-rebrand pass (item 13) to check for `dev.avelissesolutions.avelisse` instead. Without that fix they'd have silently and permanently reported "keyboard not installed" once the bundle ID actually changed.
 
 ## Localization Audit
 
@@ -293,9 +324,9 @@ See the six-category breakdown in the **Application Identity Audit** section abo
 - [ ] No transcript/audio leakage — confirmed clean, one `.private`-tagged text log to review
 - [ ] Network traffic audited — confirmed clean, all traffic is model downloads + user-initiated links
 - [ ] Secrets checked — none found
-- [ ] Bundle ID reviewed — still original, needs full rebrand + new ASC app record
-- [x] App Group reviewed — still original branding, but the hardcoded bypass in `AOSPTrieEngine.swift` is fixed
-- [ ] Keyboard extension reviewed — architecture sound, dependent on App Group/URL scheme consistency
+- [x] Bundle ID reviewed — rebranded in source (`dev.avelissesolutions.avelisse` + suffixes, 2026-08-31); still needs new ASC app record + Developer Portal registration
+- [x] App Group reviewed — rebranded in source (`group.dev.avelissesolutions.avelisse`), hardcoded bypass in `AOSPTrieEngine.swift` fixed
+- [x] Keyboard extension reviewed — architecture sound; App Group/URL scheme/bundle ID now consistent post-rebrand, including the two keyboard-detection checks
 - [ ] Entitlements reviewed — minimal, no issues
 - [ ] Privacy manifest reviewed — present, minor gap on collected-data-types declaration
 - [ ] Permission descriptions reviewed — present and filled in
@@ -311,15 +342,15 @@ See the six-category breakdown in the **Application Identity Audit** section abo
 1. ~~Get the Parakeet/NVIDIA model license conflict resolved~~ — done, see "Fixed since audit."
 2. ~~Fix `LicensesView.swift`'s FluidAudio/NVIDIA misattribution and add a correct NVIDIA/Parakeet entry~~ — done.
 3. Source or replace the 29 sound-effect files with something license-documented.
-4. ~~Rewrite every repo doc for the actual commercial Avelisse product~~ — done for all nine (README, PRD, PRIVACY, CONTRIBUTING, CONTEXT, DEVELOPMENT, KEYBOARD_BRIEFING, DEVELOPMENT_AUDIO, CLAUDE.md). Still open: decide and fill in the real values behind the `[PRICING TBD]`/`[WEBSITE_URL]`/`[SUPPORT_EMAIL]`/`[TESTFLIGHT_LINK]`/`[GITHUB_REPO_URL]`/`[PRIVACY_POLICY_URL]` placeholders; complete the actual technical rebrand (new Bundle ID/App Group) that `DEVELOPMENT.md` now explicitly calls out as still pending; confirm the two flagged `CLAUDE.md` operational items (issue-tracker repo, developer persona).
+4. ~~Rewrite every repo doc for the actual commercial Avelisse product~~ — done for all nine (README, PRD, PRIVACY, CONTRIBUTING, CONTEXT, DEVELOPMENT, KEYBOARD_BRIEFING, DEVELOPMENT_AUDIO, CLAUDE.md). ~~Complete the actual technical rebrand (new Bundle ID/App Group)~~ — done in source 2026-08-31, item 13. Still open: decide and fill in the real values behind the `[PRICING TBD]`/`[WEBSITE_URL]`/`[SUPPORT_EMAIL]`/`[TESTFLIGHT_LINK]`/`[GITHUB_REPO_URL]`/`[PRIVACY_POLICY_URL]` placeholders; confirm the two flagged `CLAUDE.md` operational items (issue-tracker repo, developer persona); update `DEVELOPMENT.md`'s now-stale historical Xcode-creation section (see 🟡 Check).
 5. ~~Fix the hardcoded App Group string in `AOSPTrieEngine.swift:207`~~ — done.
-6. Plan the bundle ID / App Group / URL scheme rebrand as one coordinated change (new ASC app record, new provisioning, updated code in the remaining flagged hardcoded locations — `KeyboardSetupPage.swift`, `GlobeKeyTutorialPage.swift`) rather than a piecemeal find-and-replace.
+6. ~~Plan the bundle ID / App Group / URL scheme rebrand as one coordinated change~~ — done in source, 2026-08-31 (see "Fixed since audit," item 13), including the previously-flagged hardcoded locations (`KeyboardSetupPage.swift`, `GlobeKeyTutorialPage.swift`). Still open: new ASC app record, new provisioning, and Apple Developer Portal registration of the new bundle IDs/App Group — account-level steps, not doable from a repo checkout.
 7. Decide whether the `.private`-tagged transcript logging in `DictationCoordinator.swift:498` should be removed entirely rather than relying on OS-level redaction.
 8. Add German UI localization if German is going to remain a marketed language, or adjust marketing claims to match actual UI language support.
 
 ---
 
-Source files modified: 12 (post-audit fixes, applied at user request across follow-up turns — see "Fixed since audit")
+Source files modified (2026-08-25, post-audit fixes 1–12, applied at user request across follow-up turns — see "Fixed since audit"): 12
 - `DictusKeyboard/TextPrediction/AOSPTrieEngine.swift`
 - `DictusApp/Views/LicensesView.swift` (two edits: FluidAudio correction, Parakeet/NVIDIA addition)
 - `README.md` (full rewrite)
@@ -331,5 +362,7 @@ Source files modified: 12 (post-audit fixes, applied at user request across foll
 - `KEYBOARD_BRIEFING.md` (light touch: title, intro line, footer)
 - `DEVELOPMENT_AUDIO.md` (light touch: title, intro line, one table header)
 - `CLAUDE.md` (branding + a genuine path-bug fix + two operational items flagged inline rather than guessed)
+
+**Technical rebrand (2026-08-31, item 13)**: ~226 paths touched (git-tracked renames + edits) — 6 top-level folders/project renamed, `project.pbxproj` and 3 `.xcscheme` files rewritten, 3 entitlements files, `Info.plist`, `AppGroup.swift`, `Logger.swift`, `DarwinNotifications.swift`, `PersistentLog.swift`, `DictusApp.swift`, `DictationStatus.swift`, `KeyboardState.swift`, `DictusLiveActivity.swift`, `KeyboardSetupPage.swift`, `GlobeKeyTutorialPage.swift`, a unit test, `.github/workflows/ci.yml`, `.swiftlint.yml`, `tools/onboard_language.py`, `tools/ngram_builder.py`, plus copy-pasteable path/command references in `README.md`, `DEVELOPMENT.md`, and `docs/agents/language-onboarding.md`. Full detail in "Fixed since audit," item 13 — not enumerated file-by-file here given the volume.
 
 Audit saved: `clients/kelly/dictation-app/audits/ios-audit.md` (this file).
