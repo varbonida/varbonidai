@@ -32,8 +32,9 @@ I know about X", so `prompts/` sits beside the wiki rather than inside it. See
 ## Marketing
 
 - [[prompts/pinterest-pin-package|Pinterest Pin Package]] - full pin package
-  (title, description, alt text, visual brief, AI image prompt, hashtags) from
-  a product name and photo
+  (title, description, alt text, visual brief, AI image prompt, hashtags)
+  built on buyer keywords, from a product name and photo, with optional star
+  rating / Amazon's Choice trust-signal badges
 - [[prompts/tiktok-affiliate-storyboard|TikTok Affiliate Storyboard]] - one
   9:16 image containing the 4-panel storyboard (Hook/Product/Payoff/CTA),
   production script table, voiceover script, and caption/hashtags, from a

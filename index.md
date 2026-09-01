@@ -60,6 +60,7 @@ Vergel's own, not client work.
 ## Concepts
 
 - [[concepts/project-notes-symlink|PROJECT_NOTES.md Symlink]] - how repo logs and vault notes stay one file
+- [[concepts/client-safe-copy|Client-Safe Copy]] - how a redacted, shareable client export stays in sync
 
 ## Prompt Library
 

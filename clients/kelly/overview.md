@@ -2,7 +2,7 @@
 type: client
 tags: [client, kelly]
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-09-01
 status: active
 aliases: [Kelly, Eleanor, Dr Citizen]
 ---
@@ -16,6 +16,12 @@ paid out via Payoneer.
 **Naming note:** she first introduced herself as Eleanor and is now addressed as
 Kelly. Same person. "Dr Citizen", "Eleanor Waves", "Wild by Choice", and
 "Avelisse" are her brands and properties, not other people.
+
+**A redacted, client-safe copy of this folder exists** at
+`C:\Users\Vergel\Documents\Obsidian\kelly`, meant to actually be shared with
+her. It is updated on request only ("sync the kelly folder"), never
+automatically - see [[concepts/client-safe-copy|Client-Safe Copy]] for what
+gets stripped and why.
 
 ## Contacts
 
@@ -45,6 +51,15 @@ how work is communicated:
 - She sees **Never Pay Double** as the project that will actually make money;
   the dictation app was chosen first deliberately as a way to learn to work
   together.
+
+## Supporting Files
+
+- [[clients/kelly/daily-updates|Daily Updates]] - client-facing, plain English,
+  no redaction needed before sharing
+- [[clients/kelly/communications|Communications Log]] - general communication
+  space as of 2026-09-01, either side can write into it. Kelly writes into her
+  own copy directly - pull before syncing, see
+  [[concepts/client-safe-copy|Client-Safe Copy]]
 
 ## Projects
 

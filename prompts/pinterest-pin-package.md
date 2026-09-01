@@ -1,17 +1,18 @@
 ---
 kind: prompt
 category: marketing
-tags: [pinterest, affiliate-marketing, marketing, design, seo, image-gen]
+tags: [pinterest, affiliate-marketing, marketing, design, seo, buyer-keywords, image-gen]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-08-31
 ---
 
 # Pinterest Pin Package
 
 Generates a complete, ready-to-use Pinterest pin from a product name and photo:
-SEO-optimised title and description, alt text, a board suggestion, a full visual
-design brief, a copy-paste AI image-generation prompt, hashtags, posting
-timing, and two swap-in headline variants (seasonal, social-proof).
+SEO-optimised title and description built on buyer keywords (purchase-intent
+search phrases, not generic category terms), alt text, a board suggestion, a
+full visual design brief, a copy-paste AI image-generation prompt, hashtags,
+posting timing, and two swap-in headline variants (seasonal, social-proof).
 
 Built for the home/kitchen/garden affiliate niche - matches
 [[projects/homemadeeasier/overview|Home Made Easier]]'s growth strategy
@@ -19,7 +20,12 @@ directly: Pinterest is that project's primary channel, and every pin there is
 meant to route to a blog post rather than straight to Amazon. This prompt
 produces the pin itself, not the bridge post.
 
-Attach a product photo and fill in the product name when using it.
+Attach a product photo and fill in the product name when using it. Star rating
+and Amazon's Choice status are optional - supply them only when real, and the
+prompt will work them into the pin image as original trust-signal badges
+(never a reproduction of Amazon's actual trademarked badge graphic, which most
+image generators refuse to draw and will reject the whole prompt over). Leave
+them out and nothing gets fabricated in their place.
 
 ```
 You are a Pinterest marketing strategist and visual designer specializing in home, kitchen, and garden products. Your job is to create a single, complete, high-converting Pinterest pin package from a product name and photo.
@@ -28,8 +34,18 @@ You are a Pinterest marketing strategist and visual designer specializing in hom
 
 ### MY INPUT
 
-- **Product Name / Title:** [PRODUCT NAME]
+- **Product Name / Title:** [PRODUCT_NAME]
 - **Product Photo:** [ATTACH IMAGE]
+- **Star Rating (optional):** [e.g. 4.7 — leave blank if not supplying one]
+- **Amazon's Choice Badge (optional):** [Yes / No — leave blank if not supplying one]
+
+---
+
+### KEYWORD STRATEGY
+
+- Prioritize **buyer keywords** — high purchase-intent phrases a shopper who is close to buying would actually search (e.g. "best cordless drill for beginners," "stainless steel knife set dishwasher safe," "non-slip bath mat for elderly") — over broad or purely informational terms (e.g. "kitchen tools," "gardening tips").
+- The primary keyword used in the Pin Title and the opening sentence of the Description must be a buyer keyword, not a generic category label.
+- Secondary keywords should mix buyer keywords with relevant long-tail search phrases — still specific enough to signal purchase intent, not just topic relevance.
 
 ---
 
@@ -52,16 +68,16 @@ Produce ALL of the following sections in this exact order:
 
 #### 1. 📌 Pin Title (SEO Optimized)
 - Write one title, max 100 characters
-- Front-load the primary keyword
+- Front-load the primary buyer keyword — a phrase with real purchase intent, not a generic category term
 - Use a compelling benefit or curiosity hook
-- Format: `Title Text` → `[Primary Keyword: keyword]`
+- Format: `Title Text` → `[Primary Buyer Keyword: keyword]`
 
 #### 2. 📝 Optimized Pin Description (max 600 characters)
 - Open with a benefit-driven hook (not the product name)
-- Naturally weave in the primary keyword in the first sentence
-- Include 2–3 secondary keywords throughout
+- Naturally weave in the primary buyer keyword in the first sentence
+- Include 2–3 secondary buyer/long-tail keywords throughout
 - End with a soft CTA that invites the click
-- Format: `Description text` → `[Primary Keyword: keyword] [Secondary Keywords: kw1, kw2, kw3]`
+- Format: `Description text` → `[Primary Buyer Keyword: keyword] [Secondary Keywords: kw1, kw2, kw3]`
 
 #### 3. 🖼️ Alt Text (Accessibility Friendly)
 - Describe the pin image as it would appear to someone who cannot see it
@@ -71,7 +87,7 @@ Produce ALL of the following sections in this exact order:
 
 #### 4. 📂 SEO-Aligned Board Name
 - Suggest one board name that:
-  - Contains a high-search keyword for this product category
+  - Contains a high-search, buyer-relevant keyword for this product category
   - Feels like a curated collection, not a single product
   - Example format: "Modern Kitchen Essentials" or "Small Space Storage Ideas"
 
@@ -87,6 +103,7 @@ Provide a complete design brief I can hand to a designer or use in Canva:
 - **Fonts:** Recommend a headline font and a subtext font (use Google Fonts). Specify weight and style
 - **CTA (bottom of pin):** A soft call-to-action in smaller text — inviting, not pushy
 - **Mobile-first note:** Confirm all text is legible at phone-screen size (minimum 24pt headline equivalent). No fine details that vanish on small screens
+- **Trust-signal badge (conditional):** If a Star Rating was supplied, add a small badge showing the exact number with a star icon (e.g. "4.7 ★"). If Amazon's Choice was marked Yes, add a small original badge/ribbon shape that communicates "top pick" or "highly rated" in its own generic wording and design — describe it as an ORIGINAL badge design, not a reproduction of Amazon's actual logo or trademarked badge graphic, since image generators reliably refuse prompts asking them to recreate a real trademark. If neither was supplied, skip this element entirely — never invent a rating or badge status that wasn't given.
 
 #### 6. 🤖 AI Pin Creation Prompt (Copy & Paste Ready)
 Write a complete, ready-to-paste prompt for an AI image generation tool (e.g., Midjourney, DALL-E, Ideogram) that would recreate the On-Pin Visual Concept above.
@@ -96,11 +113,12 @@ Requirements for this prompt:
 - Include the exact text overlays (headline, subtext, CTA) with placement instructions
 - Specify the 2:3 aspect ratio (1000 × 1500 px)
 - Mention the style, color palette, and typography from Section 5
+- If Section 5 includes a trust-signal badge, describe its exact placement, size, and content in the same level of detail as the other elements — small enough to read as a real product badge, not the focal point of the image. Describe any "top pick"/"highly rated" badge as an original design in your own words (shape, color, icon, text) rather than naming or asking to recreate Amazon's real logo or badge graphic. If Section 5 has no trust-signal badge, do not add one here either.
 - The image should feel like a professional lifestyle product photograph with text overlays — NOT a graphic design template
 - End the prompt with: `--ar 2:3` (for Midjourney compatibility)
 
 #### 7. 📊 Hashtags & Posting
-- **Hashtags:** 3–5 relevant Pinterest hashtags (with # prefix)
+- **Hashtags:** 3–5 relevant Pinterest hashtags (with # prefix), prioritizing buyer-intent phrases over broad category tags
 - **Best posting time:** Suggest the optimal day/time window based on this product's category and Pinterest engagement data
 
 #### 8. ✨ Optional Enhancements (swap in if desired)
@@ -116,5 +134,7 @@ Provide two alternative angles I can use to create pin variations later:
 - Do NOT use generic filler — every word should be specific to THIS product
 - Analyze the product photo I provide to inform the visual concept (colors, textures, setting, scale)
 - If the product photo has poor lighting or a plain background, still design the visual concept as if it were shot professionally in a lifestyle setting
-- All keywords should be based on what real Pinterest users search for in this product category
+- All keywords must be buyer keywords — real purchase-intent phrases a Pinterest user close to buying would search — not broad or purely informational terms
+- Star Rating and Amazon's Choice are optional inputs. Only include a trust-signal badge in Sections 5 and 6 if one or both were actually supplied. Never fabricate a rating or Amazon's Choice status that wasn't given.
+- Never instruct the image generator to reproduce Amazon's actual logo, trademarked "Amazon's Choice" badge graphic, or any other real brand's trademarked artwork. Describe an original badge design instead — most image generators refuse prompts that ask them to recreate a real trademark, and the pin doesn't need the literal graphic to communicate the same trust signal.
 ```

@@ -79,3 +79,27 @@ Last five operations: `grep "^## \[" log.md | tail -5`
 ## [2026-08-31] update | Found and merged a duplicate 2026-08-31 heading in updates-ios.md - two separate untracked edits landed once the real hard link was created; kept the more complete/accurate version
 ## [2026-08-31] update | Added URL scheme, Xcode project rename, and the "Dictus" file/display names still untouched to overview.md's iOS checklist
 ## [2026-08-31] query | Confirmed avelisse-android and avelisse-ios PROJECT_NOTES.md are now genuine hard links (matching inode, link count 2 on both sides)
+## [2026-08-31] update | Rewrote meeting-notes.md presentation content in first person, as Vergel speaking directly to Kelly
+## [2026-08-31] query | Verified the iOS Mediterranean Coastal color claim against the actual git diff (DictusColors.swift, 2026-08-25) - real, hex values match DESIGN.md exactly
+## [2026-08-31] update | Reverted meeting-notes.md to bulleted format, kept first-person voice
+## [2026-08-31] update | Optimized prompts/pinterest-pin-package.md for buyer keywords (purchase-intent phrases) across title, description, board name, and hashtags; added optional star rating / Amazon's Choice inputs that surface as trust-signal badges in the image prompt when supplied
+## [2026-08-31] update | Fixed a content-policy trigger in prompts/pinterest-pin-package.md: the Amazon's Choice badge instruction asked image generators to reproduce a real trademark; redirected to an original generic badge design
+## [2026-08-31] ingest | Created concepts/client-safe-copy.md documenting the redaction rules and on-request sync workflow for kelly/
+## [2026-08-31] update | Linked the client-safe copy from clients/kelly/overview.md
+## [2026-08-31] decision | Client-safe copies sync on request only, never automatically - redaction requires judgment a script can't safely replicate
+## [2026-09-01] ingest | Created clients/kelly/daily-updates.md - client-facing, plain-English daily log, no redaction needed
+## [2026-09-01] ingest | Created clients/kelly/communications.md - internal log of what Kelly herself says, never shared with her
+## [2026-09-01] update | Linked both from clients/kelly/overview.md's new Supporting Files section
+## [2026-09-01] update | Documented both file patterns in concepts/client-safe-copy.md - one syncs as-is, one must never sync
+## [2026-09-01] update | Set daily-updates.md's format: What I did today / What I'll work on next / Blockers, per-day
+## [2026-09-01] ingest | Backfilled daily-updates.md with 2026-08-25 and 2026-08-31 (only two days with real dictation-app work in the last week); 2026-08-26 to 2026-08-30 skipped per the file's own no-padding rule
+## [2026-09-01] update | Synced kelly/: added daily-updates.md (stripped internal sync-workflow references) and a new overview.md Updates link; communications.md deliberately excluded, confirmed zero footprint in the copy
+## [2026-09-01] decision | Communications Log made client-facing at explicit request; reworded away from "internal, she'll never see this" framing before syncing
+## [2026-09-01] update | Corrected concepts/client-safe-copy.md: visibility of a communications-style log is a per-file, per-client decision, not a fixed rule
+## [2026-09-01] update | Synced kelly/communications.md and linked it from kelly/overview.md
+## [2026-09-01] decision | Communications Log is now genuinely two-way - Kelly can write directly into her copy on GitHub, not just Vergel logging what she says
+## [2026-09-01] update | Added step-by-step GitHub edit instructions to kelly/communications.md for a non-technical writer
+## [2026-09-01] update | Added a mandatory pull-before-sync step to concepts/client-safe-copy.md now that a file in the copy can be edited from the client's side
+## [2026-09-01] update | Removed "Vergel writes summaries here" framing from communications.md (both copies) - it's Kelly's space only, not a shared/mixed log
+## [2026-09-01] update | Corrected communications.md framing again: it's a shared space either side writes into, not Kelly-exclusive - "own space" was an overcorrection
+## [2026-09-01] update | Synced kelly/: confirmed no remote changes to pull, verified communications.md/daily-updates.md/overview.md already match the vault's latest wording, fixed a stale frontmatter date
