@@ -2,7 +2,7 @@
 type: project
 tags: [kelly, marketing, audience-research, health]
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-09-01
 status: planned
 aliases: [chronic patient groups, audience research]
 ---
@@ -11,7 +11,16 @@ aliases: [chronic patient groups, audience research]
 
 Client: [[clients/kelly/overview|Kelly]].
 
-Audience research. Not started.
+Audience research. Not started as its own effort, but see below - the "what is
+she actually offering this audience" question this page opens with has since
+been answered.
+
+**Connected to a real product as of 2026-09-01.** The
+[[clients/kelly/dictation-app/overview|Avelisse Dictation App]] is now being
+built specifically for chronic illness patients - see its "Chronic Patient
+Requirements" section. This page's audience research isn't a separate
+marketing exercise anymore; it now directly informs who the app's real user
+is and how to reach them once there's something to show.
 
 ## What is known
 

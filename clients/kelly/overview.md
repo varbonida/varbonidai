@@ -2,7 +2,7 @@
 type: client
 tags: [client, kelly]
 created: 2026-08-27
-updated: 2026-09-01
+updated: 2026-09-02
 status: active
 aliases: [Kelly, Eleanor, Dr Citizen]
 ---
@@ -54,9 +54,9 @@ how work is communicated:
 
 ## Supporting Files
 
-- [[clients/kelly/daily-updates|Daily Updates]] - client-facing, plain English,
+- [[clients/kelly/daily-updates/index|Daily Updates]] - client-facing, plain English,
   no redaction needed before sharing
-- [[clients/kelly/communications|Communications Log]] - general communication
+- [[clients/kelly/communications/index|Communications Log]] - general communication
   space as of 2026-09-01, either side can write into it. Kelly writes into her
   own copy directly - pull before syncing, see
   [[concepts/client-safe-copy|Client-Safe Copy]]
@@ -91,6 +91,7 @@ is known and what still has to be asked.
 | [[clients/kelly/zoho/overview\|Zoho]] | planned | One word on her list. Product unidentified. |
 | [[clients/kelly/qr-marketing/overview\|QR Code Marketing]] | planned | A tactic waiting on a strategy. |
 | [[clients/kelly/chronic-patient-audience/overview\|Chronic Patient Audience]] | planned | Audience research. Handle with care. |
+| [[clients/kelly/handy-preroll-bug/overview\|Handy Pre-Roll Buffer Bug]] | planned | Explain a privacy-relevant audio bug in her desktop dictation tool. Requested 2026-09-01. |
 
 Several of these are one dictated line and nothing more. The realistic first
 move on most of them is a single clarifying question to Kelly, not scoping.

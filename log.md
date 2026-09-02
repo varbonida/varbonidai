@@ -103,3 +103,26 @@ Last five operations: `grep "^## \[" log.md | tail -5`
 ## [2026-09-01] update | Removed "Vergel writes summaries here" framing from communications.md (both copies) - it's Kelly's space only, not a shared/mixed log
 ## [2026-09-01] update | Corrected communications.md framing again: it's a shared space either side writes into, not Kelly-exclusive - "own space" was an overcorrection
 ## [2026-09-01] update | Synced kelly/: confirmed no remote changes to pull, verified communications.md/daily-updates.md/overview.md already match the vault's latest wording, fixed a stale frontmatter date
+## [2026-09-02] update | Added 2026-09-02 entry to daily-updates.md: Live Activity re-theme and the iOS source-level rename, translated to plain English
+## [2026-09-02] update | Updated dictation-app/overview.md's iOS checklist: Live Activity re-theme and app-name/reference replacement both marked done, with the three deliberate exceptions noted
+## [2026-09-01] ingest | Pulled Kelly's first direct write into communications.md: a full chronic-patient requirements document for the Android app, a workflow/UX question, and a separate Handy bug investigation request
+## [2026-09-01] major-change | Dictation app scope expanded from "Kelly's private tool" to an explicit chronic-illness-patient product - added full "Chronic Patient Requirements (Android)" section to dictation-app/overview.md
+## [2026-09-01] ingest | Created clients/kelly/handy-preroll-bug/overview.md (new planned project) from Kelly's own request
+## [2026-09-01] update | Connected chronic-patient-audience/overview.md to the dictation app - the product now exists that the audience research was missing
+## [2026-09-01] query | Three items now await Vergel's direct response: a firm ship date, per-section time estimates, and Kelly's own question about restructuring the communications log to one file per day
+## [2026-09-02] update | Synced kelly/: pushed dictation-app/overview.md, chronic-patient-audience/overview.md, handy-preroll-bug/overview.md, and the overview.md backlog entry; re-applied the "Compliance and reputational considerations" redaction that a raw push had reverted; left her own communications.md entry untouched, not overwritten with the vault's annotated version
+## [2026-09-01] decision | Restructured communications from a single accumulating file into a folder of dated, titled notes (YYYY-MM-DD - Title.md), directly answering Kelly's own request
+## [2026-09-01] update | Migrated communications.md content into clients/kelly/communications/2026-09-01 - Specs for the App.md and created communications/index.md; old file removed
+## [2026-09-01] update | Rewrote all cross-references (dictation-app, handy-preroll-bug, client overview, concepts/client-safe-copy) to point at the new folder structure
+## [2026-09-01] update | Applied the same restructuring to kelly/: her raw entry preserved verbatim in the new location, old communications.md turned into a redirect stub rather than deleted
+## [2026-09-01] query | Realized from Kelly's own message ("I LOVE this Obsidian") that she's using the Obsidian app directly, not GitHub's web editor - rewrote the "how to add a note" instructions in her copy to match, dropping the GitHub-pencil-icon steps
+## [2026-09-02] decision | Restructured daily-updates from a single accumulating file into one note per week, Wednesday through Tuesday
+## [2026-09-02] update | Split existing entries into three weekly files (2026-08-19 to 25, 2026-08-26 to 09-01, 2026-09-02 to 09-08) plus an index; old daily-updates.md removed
+## [2026-09-02] update | Applied the same restructuring to kelly/; left a redirect stub in place of the old file since Kelly specifically praised "the daily notes" in her message
+## [2026-09-02] update | Logged the Obsidian communications/daily-updates restructure itself in this week's daily-updates entry, plain English, both vault and kelly/ copy
+## [2026-09-02] update | Found additional real iOS work in updates-ios.md not yet synced: swipe-back overlay re-themed (last flagged screen), old Dictus palette fully retired, two dead links killed
+## [2026-09-02] update | Updated dictation-app/overview.md checklist and daily-updates entry to reflect the swipe-back overlay completion; app icon flagged as the one remaining holdout, needing a design decision not a code fix
+## [2026-09-02] update | Synced updates-ios.md, dictation-app/overview.md, and this week's daily-updates entry to kelly/; verified no redaction reversion and all links resolve
+## [2026-09-02] update | Pulled Vergel's reply to Kelly's spec doc (written directly in kelly/communications) into the vault's copy of the same file
+## [2026-09-02] update | Extracted the reply's durable answers into dictation-app/overview.md: firm ship date (2026-10-23), per-section estimates, and four scope clarifications found while estimating (offline correction instead of pre-loading, personal dictionary is new work, SNOMED redistribution risk, auto-title means trimmed opening line not a summary) plus two bugs found in section 3 (2-minute transcription cap, audio held in memory instead of storage)
+## [2026-09-02] update | Pushed the same dictation-app/overview.md changes to kelly/ - all client-facing, no redaction needed

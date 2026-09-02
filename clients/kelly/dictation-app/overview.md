@@ -2,7 +2,7 @@
 type: project
 tags: [kelly, dictation-app, avelisse, android, ios, mobile]
 created: 2026-08-04
-updated: 2026-08-31
+updated: 2026-09-02
 status: active
 aliases: [Avelisse Dictation App, AVELISSE, Dictation App, Dictus rebrand]
 ---
@@ -11,10 +11,17 @@ aliases: [Avelisse Dictation App, AVELISSE, Dictation App, Dictus rebrand]
 
 Canonical page for Kelly's dictation app. Client: [[clients/kelly/overview|Kelly]].
 
-A private, accurate, on-device dictation app for Kelly's own use, built by
-rebranding an existing open-source project rather than writing one from scratch.
-Named "Avelisse Dictation App" for now, borrowing the name of her Avelisse
-property. Final brand name is still unconfirmed.
+A private, accurate, on-device dictation app, built by rebranding an existing
+open-source project rather than writing one from scratch. Named "Avelisse
+Dictation App" for now, borrowing the name of her Avelisse property. Final
+brand name is still unconfirmed.
+
+**Scope expanded significantly on 2026-09-01.** What started as Kelly's own
+private tool is now explicitly a product for chronic illness patients - see
+"Chronic Patient Requirements (Android)" below. Both app stores reject a pure
+rebrand with no added value, so this expansion is also the thing that makes
+submission possible, not an optional extra. Full source:
+[[clients/kelly/communications/2026-09-01 - Specs for the App|Communications, 2026-09-01]].
 
 ## Status
 
@@ -23,13 +30,19 @@ property. Final brand name is still unconfirmed.
   iOS has been built, run, or verified - still unbuildable locally.
 - **Android:** v1.0.0-alpha released 2026-08-25, awaiting Kelly's test.
   Repo: https://github.com/varbonida/avelisse-android (branch `develop`)
-- **iOS:** repo forked, docs and colour system rewritten, technical identity
-  rebrand (bundle ID, App Group) completed 2026-08-31. None of it has been
-  compiled, run, or verified yet - that still needs a Mac.
+- **iOS:** repo forked, docs and colour system rewritten and now fully
+  applied (old palette completely retired except the app icon, which needs a
+  design decision), technical identity rebrand (bundle ID, App Group, URL
+  scheme, and the full source-level rename including the display name,
+  2026-08-31 to 2026-09-02) complete. None of it has been compiled, run, or
+  verified yet - that still needs a Mac.
   Repo: https://github.com/varbonida/avelisse-ios
 - **Desktop:** research only. [Handy](https://handy.computer/) selected.
 - **Blocker:** iOS cannot be built or verified from a Windows machine. See
   [[questions/ios-build-without-mac|the open question on iOS builds]].
+- **Android ship date:** Friday, 2026-10-23, to Google Play (excludes Play's
+  review queue). Given by Vergel 2026-09-02 per Kelly's request for one firm
+  date, not a range. See per-section estimate table below.
 
 Base projects being rebranded:
 
@@ -80,6 +93,128 @@ Technical requirements:
   App Store Connect, Apple Developer account.
 - Compliance: Open Source Licences screen, required attribution, dependency and
   AI model licence audits, privacy policy, permission/network/telemetry audits.
+
+## Chronic Patient Requirements (Android)
+
+From Kelly, 2026-09-01, verbatim source in
+[[clients/kelly/communications/index|the communications log]]. This is a real
+requirements document, not a summary - build against it directly.
+
+**Why:** app store review rejects a pure rebrand with no added value. This is
+also the actual product decision: the target user is a chronic illness
+patient who can't reliably recall weeks of symptoms in a short appointment,
+often can't type well (dry mouth, tremor, fatigue, brain fog), and needs the
+app to ask nothing of them beyond talking.
+
+**1. Medical vocabulary, loaded in advance**
+- Load RxNorm (US National Library of Medicine, free, immediate download) -
+  drug names, brand and generic, with the mapping between them.
+- Load SNOMED CT (diagnoses, symptoms, procedures) - free in Germany and the
+  US, but requires license registration first, 1-2 day turnaround. **Start
+  this registration immediately, it's a scheduling dependency, not a coding
+  task.**
+- Surface the existing personal-dictionary feature more visibly (make it easy
+  to find and add to), and document it in the app's own instructions/store
+  description. Kelly explicitly asked to be told if either dictionary choice
+  is a problem - that hasn't been answered yet.
+
+**Clarified by Vergel, 2026-09-02**, after estimating the work:
+- "Loaded in advance" isn't possible offline - offline speech recognition has
+  no mechanism to accept a vocabulary before transcription starts (that's a
+  cloud-only feature). Instead, RxNorm/SNOMED are applied as a post-recognition
+  correction pass: transcribe, then repair anything close-but-wrong against the
+  medical lists. Same result for Kelly, different mechanism than she described.
+- The personal-dictionary feature Kelly is thinking of is the keyboard's
+  autocomplete dictionary, not something wired to speech - it can't be reused.
+  A real speech-correction personal dictionary (tap a wrong word, say the
+  right one, it sticks) is new work, built on the same correction pass above.
+- SNOMED risk: the free registration covers download and use, not necessarily
+  redistribution inside an app across countries the licence doesn't name.
+  Waiting on Kelly to forward the actual licence text once the account clears.
+  Fallback to protect the ship date: if not resolved by **2026-09-20**, ship
+  2026-10-23 with RxNorm and personal corrections only, add SNOMED later as a
+  file swap.
+- RxNorm may need an account rather than being an instant download as Kelly's
+  brief stated - unverified as of 2026-09-02.
+
+**2. Two single-button logs**
+- **Symptom log** - one button, opens, records, auto-dates and auto-titles
+  the entry, files it locally. No forms, no fields, no decisions required of
+  the user mid-entry.
+- **Post-visit capture** - same interaction, meant for immediately after a
+  medical appointment.
+- Both: browsable and searchable by date. An export button exists but export
+  is never automatic - the user always chooses to send a copy.
+- **Clarified 2026-09-02:** "auto-titled" means the trimmed opening line of
+  what was said, not an AI-generated summary - summarization needs a
+  data-centre-scale model, which would break requirement 5 (nothing leaves
+  the phone).
+
+**3. No timeouts, anywhere** - not on recording, not on the app itself.
+Someone pausing mid-thought must not lose what they already said. Kelly calls
+this the single biggest differentiator from a free keyboard.
+- **Found while estimating, 2026-09-02:** two real bugs in this area, both
+  being fixed as part of this section's work. A two-minute cap on
+  transcription after recording stops (hits on longer recordings on older
+  phones). And the app holds the entire recording in working memory rather
+  than writing to storage as it records - past roughly half an hour of audio
+  (~115MB) Android kills the app and the recording is lost, which is exactly
+  the failure this requirement exists to prevent.
+
+**4. Accessibility as a first-class requirement, not a later pass** - every
+control large, usable one-handed, usable lying down. Designed in from the
+start.
+
+**5. Nothing leaves the phone, reinforced** - no cloud, no server, no account,
+ever, already a requirement above. New framing: not claiming HIPAA compliance,
+but built with HIPAA-level care throughout, since the data involved is exactly
+what HIPAA exists to protect and users will expect that level of care whether
+or not the law technically requires it here.
+
+### What Kelly asked for, answered 2026-09-02
+
+Her own words: two things needed *before* building continues, not after.
+
+- [x] **A single, firm ship date.** Friday, 2026-10-23, to Google Play
+      (excludes Play's review queue). Sits in the middle of the 31-39 day
+      range the five sections add up to, so it isn't padded.
+- [x] **Per-section time estimates**, plus which one is hardest and why:
+
+  | Section | Days |
+  |---|---|
+  | 1. Medical words | 10-14 |
+  | 2. Two places to talk | 6-8 |
+  | 3. Speech that forgives | 3-4 |
+  | 4. Bad hands and no energy | 4-5 |
+  | 5. Nothing leaves the phone | 1 |
+  | Integration and device testing | 4 |
+  | Google Play prep and the three write-ups | 3 |
+
+  Section 1 is hardest and carries roughly two-thirds of the risk - if the
+  date slips, it will be flagged in the first three weeks, not near the end.
+
+Full reply, verbatim:
+[[clients/kelly/communications/2026-09-01 - Specs for the App|Communications, 2026-09-02]].
+
+Now blocking on Kelly's side:
+
+- [ ] Complete/confirm the RxNorm and SNOMED registrations - the only open
+      item that can still move the ship date.
+- [ ] Forward the SNOMED licence text once the account clears, so the
+      redistribution question can be resolved (target 2026-09-20).
+
+Later, not blocking now: a technical description of the app and its build
+tools, a user-facing description written for a tired chronic patient deciding
+whether this is worth their energy, and a step-by-step Google Play submission
+plan.
+
+### Related
+
+- [[clients/kelly/chronic-patient-audience/overview|Chronic Patient Audience]]
+  - the marketing/audience-research backlog item this directly connects to.
+  The product itself is now built for this audience, not just marketed to it.
+- [[clients/kelly/handy-preroll-bug/overview|Handy Pre-Roll Buffer Bug]] - a
+  separate task from the same message, not part of this scope.
 
 ## Android Workflow
 
@@ -147,12 +282,17 @@ Repository and branding
       framing and stale getdictus.com links
 - [x] Write `DESIGN.md` translating the Android design system into iOS terms
 - [x] Implement the colour system across screens and components
-- [ ] Re-theme the Live Activity widget and the cold-start swipe-back overlay,
-      both deliberately left on the old palette
-- [ ] Replace app name, icons, and remaining Dictus references in UI - display
-      name is still "Dictus"; file/type names (`DictusApp.swift`, `DictusCore`,
-      etc.) also untouched, deliberately kept out of the 2026-08-31 identity
-      pass
+- [x] Re-theme the Live Activity widget (2026-09-02)
+- [x] Re-theme the cold-start swipe-back overlay (2026-09-02) - the old
+      Dictus palette is now fully gone from the app, keyboard, core, and
+      widgets. One holdout: the app icon still generates in the old colours,
+      which needs an actual icon design decision, not a code fix.
+- [x] Replace app name and remaining Dictus references in UI, including the
+      display name, mic prompt, and localisation strings (2026-09-02). Three
+      things kept as-is on purpose: the MIT attribution block (renaming it
+      would misattribute the original developer's work), one legacy storage
+      key that lets existing installs upgrade cleanly, and a file-format
+      marker inside the dictionary files that would break them if changed.
 
 Application identity
 
@@ -206,9 +346,29 @@ Research complete, nothing built. Handy selected.
 - [ ] Determine transcription processing architecture
 - [ ] Determine privacy and data retention policy
 - [ ] Determine Android, iOS, and desktop distribution strategies
+- [ ] Both app stores reject a pure rebrand with no added value - the
+      "Chronic Patient Requirements" section above is what clears this gate.
+      Submission should not proceed until real progress against that section
+      exists, regardless of how ready the technical rebrand looks.
 
 ## Revision History
 
+- 2026-09-02 - Vergel answered Kelly's two blocking asks: ship date
+  (2026-10-23) and per-section estimates, sent via
+  [[clients/kelly/communications/2026-09-01 - Specs for the App|Communications]].
+  Estimating the work surfaced real scope clarifications, recorded above: the
+  medical vocabulary can't be "loaded in advance" offline (post-recognition
+  correction instead), the personal dictionary needs new work rather than
+  reuse, SNOMED redistribution rights are unconfirmed, "titled" means the
+  trimmed opening line rather than a summary, and two bugs (a 2-minute
+  transcription cap, audio held in memory instead of written to storage) were
+  found and folded into the section 3 estimate.
+- 2026-09-01 - Scope expanded from "Kelly's private tool" to an explicit
+  chronic-patient product, per her own detailed requirements document. Added
+  the full "Chronic Patient Requirements (Android)" section and three open
+  asks (ship date, per-section estimates, a green light to proceed) she wants
+  answered before more building happens. Source:
+  [[clients/kelly/communications/2026-09-01 - Specs for the App|Communications, 2026-09-01]].
 - 2026-08-27 - Page created during vault bootstrap. Consolidated from the
   previous vault's Dictation App hub, with all workflow checkboxes updated to
   reflect what the Android and iOS changelogs actually show as done.

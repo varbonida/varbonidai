@@ -26,3 +26,6 @@ Format: `## [YYYY-MM-DD] <what changed> - <why it is major>`
 ## [2026-08-28] Home Made Easier - full strategy documented (Pinterest-first growth, moms niche, deliberate scale architecture, design direction), not just a stack summary
 ## [2026-08-31] Found and corrected a false "link fixed" claim from a coding agent - real design decision (Home Made Easier's actual visual direction) had never reached the vault
 ## [2026-08-31] iOS technical rebrand completed - bundle ID and App Group now match the app's own identity, resolving a checklist item open since the project started
+## [2026-09-01] Kelly wrote directly into her shared communications log for the first time - a full chronic-patient product requirements document, reframing the dictation app's purpose and adding a new backlog item
+## [2026-09-01] Communications restructured from one file to one-note-per-day - Kelly's own UX feedback acted on the same day
+## [2026-09-02] Daily updates restructured to weekly (Wed-Tue) notes, matching the same one-file-per-period pattern just applied to communications

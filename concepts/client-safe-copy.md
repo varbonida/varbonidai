@@ -2,7 +2,7 @@
 type: concept
 tags: [tooling, client-sharing, workflow, redaction]
 created: 2026-08-31
-updated: 2026-09-01
+updated: 2026-09-02
 aliases: [client-safe copy, redacted client export]
 ---
 
@@ -33,14 +33,19 @@ automatically. Each sync:
 
 0. **Pull the client-safe repo's remote first, before touching anything.**
    Once any file in the copy is two-way (see
-   [[clients/kelly/communications|Communications Log]]), the client may have
+   [[clients/kelly/communications/index|Communications]]), the client may have
    committed directly on GitHub since the last sync. Skipping this step risks
    overwriting or silently missing something she wrote herself.
 1. Diffs the vault's client folder against the existing safe copy - in both
    directions. Vault-authored changes flow out to the copy as before; anything
    new in a two-way file that isn't yet in the vault flows back in.
 2. Re-applies the known redaction rules below to anything that changed on the
-   vault side.
+   vault side. **This includes files that already had a redaction applied
+   last time** - re-pushing the vault's raw version over an already-redacted
+   file silently reverts the redaction (hit and fixed live on 2026-09-02, with
+   [[clients/kelly/chronic-patient-audience/overview|Chronic Patient
+   Audience]]'s "Handle with care" heading). Check the redaction checklist
+   against every file being pushed, not just files that look new.
 3. Flags anything newly written that looks like it needs a fresh judgment
    call - a new backlog item with blunt internal commentary, a new relationship
    note, anything that reads like it was written for the agent rather than the
@@ -96,17 +101,31 @@ benefit, need review.
 Added for Kelly starting 2026-09-01, and worth reusing as a pattern for any
 future client:
 
-- **A client-facing running log** ([[clients/kelly/daily-updates|Daily
+- **A client-facing running log** ([[clients/kelly/daily-updates/index|Daily
   Updates]]) - written in plain language from the moment it's created, because
   it's meant for the client to read. Needs no redaction pass on sync; it just
-  gets copied straight across.
-- **A communications log** ([[clients/kelly/communications|Communications
-  Log]]) - a running record of what's been discussed and agreed, written by the
-  agent so it survives past the conversation it happened in. Started as
-  internal-only, then made client-facing on 2026-09-01 at Vergel's explicit
-  request. **This kind of file needs an explicit visibility decision recorded
-  in its own header, not an assumption carried over from a similar file.** A
-  file that logs what a client says can reasonably go either way depending on
-  the client and what's actually in it - don't assume "internal" or
-  "client-facing" by analogy to another client's setup; check the file's own
-  stated visibility before syncing it.
+  gets copied straight across. Restructured on 2026-09-02 from one
+  accumulating file into one note per week (Wednesday to the following
+  Tuesday, matching how Vergel actually thinks about a work week), each still
+  holding one dated heading per day worked - same reasoning as the
+  communications log below, applied before the file grew large enough for
+  anyone to complain about it.
+- **A communications log** ([[clients/kelly/communications/index|
+  Communications]]) - a running record of what's been discussed and agreed.
+  Started as one internal-only file, made client-facing on 2026-09-01 at
+  Vergel's explicit request, then restructured again the same day into
+  **one dated, titled note per folder entry** (`YYYY-MM-DD - Descriptive
+  Title.md`) instead of a single accumulating file, at Kelly's own request -
+  she wanted to find a specific past conversation again without scrolling.
+  Two lessons worth carrying to the next client:
+  - **This kind of file needs an explicit visibility decision recorded in its
+    own header, not an assumption carried over from a similar file.** A file
+    that logs what a client says can reasonably go either way depending on the
+    client and what's actually in it - check the file's own stated visibility
+    before syncing it, don't assume by analogy.
+  - **A single accumulating log file is not the only shape this can take, and
+    the client's own preference should win.** If a client says they want to
+    find things again, a folder of dated, titled notes searches and browses
+    better than scrolling one long file - ask, or watch for the same
+    complaint Kelly raised, rather than defaulting to one file because that's
+    how the first version was built.
