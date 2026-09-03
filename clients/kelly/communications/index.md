@@ -3,7 +3,7 @@ kind: communications-index
 client: kelly
 tags: [kelly, communications, client-facing]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-03
 ---
 
 # Kelly - Communications
@@ -27,3 +27,7 @@ pull-before-sync step** - see [[concepts/client-safe-copy|Client-Safe Copy]].
 - [[clients/kelly/communications/2026-09-01 - Specs for the App|2026-09-01 - Specs for the App]] -
   the chronic-patient requirements document, her workflow question about this
   folder, and the Handy bug request
+- [[clients/kelly/communications/2026-09-02 - Move Git repo|2026-09-02 - Move Git Repo]] -
+  request to transfer the client-kelly repo to her GitHub account and audit
+  other accounts under Vergel's name; also introduces her new Tasks-plugin
+  workflow

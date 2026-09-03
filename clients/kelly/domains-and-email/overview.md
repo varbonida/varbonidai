@@ -31,6 +31,10 @@ Domains and addresses seen so far:
 Her brand mail currently runs through at least one Gmail account, which is
 probably part of why she wants this untangled. That is inference.
 
+2026-09-02: as part of an account-ownership cleanup, Kelly asked whether any
+domains sit under Vergel's personal account rather than hers - see
+[[clients/kelly/overview|Kelly's overview]].
+
 ## Related
 
 [[clients/kelly/zoho/overview|Zoho]] is on her list too and Zoho Mail is a

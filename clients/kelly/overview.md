@@ -2,7 +2,7 @@
 type: client
 tags: [client, kelly]
 created: 2026-08-27
-updated: 2026-09-02
+updated: 2026-09-03
 status: active
 aliases: [Kelly, Eleanor, Dr Citizen]
 ---
@@ -51,6 +51,16 @@ how work is communicated:
 - She sees **Never Pay Double** as the project that will actually make money;
   the dictation app was chosen first deliberately as a way to learn to work
   together.
+- **She runs her own task list in her copy of this vault**, added
+  2026-09-02, using the Obsidian Tasks community plugin: two notes, "Tasks"
+  and "Tasks, Finished". Tag something `#vergel` or `#kelly` to route it to
+  the right person's list; untagged items land in a shared middle list.
+  Checking a box moves it to "Tasks, Finished" with a completion date (needs
+  "Set done date on every completed task" on in her Tasks settings - Vergel
+  confirmed this is enabled, 2026-09-03). This
+  plugin isn't used in the main vault - a community-plugin syntax that only
+  renders correctly in her copy, so anything meant to reach this vault still
+  needs restating in plain language, not copied as a task query.
 
 ## Supporting Files
 
@@ -102,6 +112,26 @@ move on most of them is a single clarifying question to Kelly, not scoping.
 - First invoice covered 2026-08-10 to 2026-08-18, sent 2026-08-19, paid 2026-08-20.
 - Per-period summaries of what was billed: [[clients/kelly/invoices|invoices]].
 - No account or payout credentials are stored in this vault, deliberately.
+
+## Account Ownership Cleanup
+
+On 2026-09-02 Kelly asked that everything the business runs on move out of
+personal accounts - including Vergel's - and under her own. Reason given:
+tightening up how the business holds its assets before it becomes a real
+problem, not anything to do with the work itself.
+
+- [x] Transfer the `client-kelly` GitHub repo to her account (`WanderingKell`).
+  Done 2026-09-03, ahead of the 2026-09-05 deadline - GitHub's ownership
+  transfer is now pending Kelly's acceptance of the invite.
+- [ ] Awaiting her answer: the avelisse-android and avelisse-ios source repos
+  are also under Vergel's account - asked 2026-09-03 whether to transfer
+  those too. The n8n setup/instructions and the Never Pay Double app/code
+  can't be checked yet - she hasn't sent either over. Domains still
+  unaddressed. See [[clients/kelly/n8n-digitalocean/overview|n8n on
+  DigitalOcean]], [[clients/kelly/never-pay-double/overview|Never Pay
+  Double]], and [[clients/kelly/domains-and-email/overview|Domains & Email]].
+
+Full thread: [[clients/kelly/communications/2026-09-02 - Move Git repo|Communications, 2026-09-02]].
 
 ## Revision History
 

@@ -3,7 +3,7 @@ kind: billing
 client: kelly
 tags: [kelly, billing]
 created: 2026-08-19
-updated: 2026-08-27
+updated: 2026-09-02
 ---
 
 # Kelly - Invoices
@@ -31,3 +31,10 @@ Sent 2026-08-19. Paid 2026-08-20.
 8. Audited and cleaned up leftover old branding (165 files) and resolved iOS license issues.
 9. Rewrote all nine iOS docs and ported the design system to iOS.
 10. Documented the design system and completed Schengen Calculator research.
+
+## 2026-08-26 to 2026-09-01
+
+1. Completed the iOS technical identity rebrand (bundle ID, App Group, URL scheme) to match the Android app, catching and fixing three regressions the rename would have caused silently.
+2. Re-themed iOS's last leftover dark screen to the app's light color scheme and completed the iOS source-level rename (~187 paths: module, imports, files, types, design tokens, C++ namespace, user-facing strings and translations), deliberately preserving three identifiers required for legal attribution or backward compatibility.
+3. Restructured the communications and daily-update logs into a dated, two-way format at her request, and gave her direct write access.
+4. Received and processed the full Android requirements document: the chronic-patient product scope across five feature sections.

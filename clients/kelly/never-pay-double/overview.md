@@ -2,7 +2,7 @@
 type: project
 tags: [kelly, never-pay-double, app]
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-09-03
 status: planned
 aliases: [Never Pay Double, NeverPayDouble]
 ---
@@ -32,3 +32,6 @@ conversation with her before any estimate is possible.
 
 Ask her for the repo or build, and a definition of done, once the dictation app
 ships.
+
+- 2026-09-03: asked again as part of the account-ownership cleanup - still
+  not sent. See [[clients/kelly/overview|Kelly's overview]].

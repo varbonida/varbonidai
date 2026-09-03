@@ -2,7 +2,7 @@
 type: concept
 tags: [tooling, client-sharing, workflow, redaction]
 created: 2026-08-31
-updated: 2026-09-02
+updated: 2026-09-03
 aliases: [client-safe copy, redacted client export]
 ---
 
@@ -129,3 +129,13 @@ future client:
     better than scrolling one long file - ask, or watch for the same
     complaint Kelly raised, rather than defaulting to one file because that's
     how the first version was built.
+- **A task list, added by Kelly directly to her copy on 2026-09-02** (`00
+  Tasks/Tasks.md` and `Tasks, Finished.md`), using the Obsidian Tasks
+  community plugin's query syntax. This is a client-side-only pattern - it
+  never mirrors into the main vault, since the vault's own CLAUDE.md bans
+  community-plugin syntax outright (unreadable outside Obsidian, and a second
+  task list disagrees with a real one within a week). When a task written
+  there is durable, extract it as a plain-language checklist on the relevant
+  canonical page instead of copying the query block - see
+  [[clients/kelly/overview|Kelly's overview]]'s "Account Ownership Cleanup"
+  section for an example.

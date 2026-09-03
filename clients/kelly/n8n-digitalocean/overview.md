@@ -2,7 +2,7 @@
 type: project
 tags: [kelly, n8n, digitalocean, automation, infrastructure]
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-09-03
 status: planned
 aliases: [n8n, DigitalOcean, droplet 1382]
 ---
@@ -21,6 +21,12 @@ started.
   1382?" She is paying roughly $25/month for what appears to be droplet 1382 and
   is questioning whether it is worth keeping.
 - The workflows are described only as unfinished. Actual scope unknown.
+- 2026-09-02: as part of an account-ownership cleanup, Kelly asked whether
+  this droplet sits under Vergel's personal account rather than hers - see
+  [[clients/kelly/overview|Kelly's overview]]. Answer that alongside the
+  access/scope questions below.
+- 2026-09-03: still hasn't sent the n8n setup/instructions, so access and
+  scope both remain unknown.
 
 ## Why this one matters beyond the invoice
 
