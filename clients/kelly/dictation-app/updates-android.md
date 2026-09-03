@@ -5,7 +5,7 @@ project: avelisse-dictation-app
 platform: android
 tags: [kelly, dictation-app, android, changelog]
 created: 2026-08-19
-updated: 2026-08-25
+updated: 2026-09-03
 ---
 
 # Avelisse Dictation App - Android Updates
@@ -73,3 +73,15 @@ Changelog for `varbonida/avelisse-android`. See [[clients/kelly/dictation-app/ov
 - Rebranded the color system from the old Dictus/ivory-teal-terracotta palette to a new "Mediterranean Coastal" palette (sea teal, terracotta, sun amber, whitewash) — first updated `DESIGN.md` itself as the documentation-only source of truth, then implemented it for real across the whole app: rewrote `AvelisseColors.kt`/`AvelisseTheme.kt` with semantic token names (`Primary`/`Secondary`/`Accent`/`Background`/`Surface`/etc., replacing screen-named ones like `HomeAccent`/`ModelsSurface`), and propagated the rename across all 9 screens, shared components, and — deliberately, since it was explicitly back in scope this time — the keyboard/IME module, which had been left on an old dark theme since the original Home-palette redesign.
 - Fixed a compile error from my own rename (two declarations both named `AvelisseColorScheme` — a naming collision) once Pierre got a working local build for the first time this engagement. That first real on-device run then surfaced a genuine, pre-existing bug: tapping stop sometimes reset to Recording instead of transcribing, and a second stop tap produced no result. Root-caused to a real concurrency bug (not related to the color work) — `AudioCaptureManager`'s background read loop blocks on a synchronous native `AudioRecord.read()`, so cancelling it is not immediate, and a straggler energy-update callback could land after `confirmAndTranscribe()` had already moved state to `Transcribing`, silently reverting it. Fixed with a lock-guarded capture flag plus a defensive state check in `DictationService`.
 - Next focus: Pierre to rebuild and confirm the compile fix, then stress-test the recording flow (including rapid repeated stop taps) to confirm the race is actually closed; visually verify the Mediterranean Coastal palette across the app and keyboard once built.
+
+### 2026-09-03
+
+- Answered Kelly's five-section brief in the vault and committed to 23 October as the ship date. Broke the brief into tasks, then rewrote section 2, which was missing the storage layer, the home screen rework and delete-an-entry, and silently duplicated section 3's audio-to-storage work.
+- Built the journal storage layer: Room over one table, transcript only, with browse-by-date, search and delete. Search matches an accent-stripped copy of the text, since SQLite LIKE would never find "fatigue" spelled with an accent in a French-first app.
+- Rebuilt the home screen so the two logs lead and the keyboard demotes to settings. Two findings worth keeping: white on the brand terracotta is 3.8:1 and fails AA, so the button gradient uses a new deepened token; and fixed-height buttons in a non-scrolling column clipped at large system font sizes, which this audience actually uses.
+- Wired the two home buttons to actually file what they record. The recording screen now hands the transcript to its caller instead of deciding where it goes, and the save runs in a ViewModel so tapping back the moment the text appears does not cancel the write.
+- Dropped the last-transcription card from Home. It was fed by a preference only the in-app recorder ever wrote, so keeping it alongside the journal would have stored the same medical text twice and left deleted entries showing on Home.
+- Built the browse screen: search, all entries in one list newest first, tap a row to read the full text in place, delete behind a confirmation. Two distinct empty states, since an empty journal and a search that matched nothing are different problems. Reached from an outlined "Your entries" row on Home, above the two buttons.
+- Added export, then reworked it. First version opened the share sheet; changed to Android's own save dialog so the file actually downloads somewhere the person can find it, named by date. Plain text, exports whatever the search has narrowed the list to. Format is my call, not Kelly's answer, and PDF would only change the writer rather than the document.
+- Both open section 2 questions were settled later the same day rather than left to hold the build: an entry keeps the transcript only, and export writes plain `.txt`. Both recorded as revisitable, and both match what section 2 already builds.
+- Next focus: section 3, streaming audio to storage instead of holding the whole recording in RAM. Section 2 is complete otherwise. Nothing has run on a phone yet, which is now the biggest untested gap. Still waiting on the RxNorm/SNOMED registrations, the only item that can move 23 October.

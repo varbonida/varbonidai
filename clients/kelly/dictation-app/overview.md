@@ -145,6 +145,10 @@ app to ask nothing of them beyond talking.
   medical appointment.
 - Both: browsable and searchable by date. An export button exists but export
   is never automatic - the user always chooses to send a copy.
+- **Decided 2026-09-03, both revisitable:** an entry stores the transcript
+  only, not the audio (keeping audio grows storage fast and makes delete
+  matter more), and export writes a plain `.txt` file. PDF stays open as a
+  later option if Kelly wants it.
 - **Clarified 2026-09-02:** "auto-titled" means the trimmed opening line of
   what was said, not an AI-generated summary - summarization needs a
   data-centre-scale model, which would break requirement 5 (nothing leaves
