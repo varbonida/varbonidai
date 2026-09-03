@@ -208,6 +208,12 @@ tools, a user-facing description written for a tired chronic patient deciding
 whether this is worth their energy, and a step-by-step Google Play submission
 plan.
 
+**Where the work is tracked:** the spec is broken into actual tasks in Kelly's
+own copy, at `00 Tasks/Avelisse Dictation Android Build.md`, tagged
+`#vergel`/`#kelly` for her Tasks dashboard. That is the tracker; this page
+stays the knowledge. It deliberately does not exist in this vault - see
+[[concepts/client-safe-copy|Client-Safe Copy]].
+
 ### Related
 
 - [[clients/kelly/chronic-patient-audience/overview|Chronic Patient Audience]]

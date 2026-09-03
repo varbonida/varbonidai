@@ -139,3 +139,5 @@ Last five operations: `grep "^## \[" log.md | tail -5`
 ## [2026-09-03] update | Answered the open "anything else under my accounts" ask in the Move Git Repo reply: flagged avelisse-android/ios repos for transfer, noted n8n and Never Pay Double still not sent - applied to both copies
 ## [2026-09-03] update | Updated overview.md, n8n-digitalocean/overview.md, and never-pay-double/overview.md (both copies) to reflect the new open items
 ## [2026-09-03] update | Kelly's copy of the Move Git Repo reply had been hand-edited (bold repo names, dropped "same as client-kelly was") - mirrored that wording into the vault's copy so both match
+## [2026-09-03] update | Broke the 2026-09-01 spec into tasks at kelly/00 Tasks/Avelisse Android Build.md (24 items, tagged #vergel/#kelly, dates only on the two already-committed ones); pointer added to dictation-app/overview.md in both copies, task file itself deliberately not mirrored into the vault
+## [2026-09-03] update | Renamed the task note to kelly/00 Tasks/Avelisse Dictation Android Build.md; reassigned the RxNorm/SNOMED registrations to #kelly, matching what dictation-app/overview.md already said
