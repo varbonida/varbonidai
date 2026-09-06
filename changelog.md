@@ -29,3 +29,6 @@ Format: `## [YYYY-MM-DD] <what changed> - <why it is major>`
 ## [2026-09-01] Kelly wrote directly into her shared communications log for the first time - a full chronic-patient product requirements document, reframing the dictation app's purpose and adding a new backlog item
 ## [2026-09-01] Communications restructured from one file to one-note-per-day - Kelly's own UX feedback acted on the same day
 ## [2026-09-02] Daily updates restructured to weekly (Wed-Tue) notes, matching the same one-file-per-period pattern just applied to communications
+## [2026-09-03] New project: Automations - self-hosted n8n stack gets a canonical page, first workflow built
+## [2026-09-03] Tirz sales tracker reversed its trigger design same-day - poll dropped for Telegram Trigger + Cloudflare Tunnel, because the credential cannot authenticate a polling node
+## [2026-09-06] New project: Faceless Video Content - AI-generated Shorts/Reels, first deliverable is a 13-step reverse-engineering workflow for short AI drama videos

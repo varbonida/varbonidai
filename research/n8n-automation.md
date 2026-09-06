@@ -1,8 +1,8 @@
 ---
 type: research
-tags: [automation, n8n, gemini, llm, skill, gotchas]
+tags: [automation, n8n, gemini, llm, telegram, docker, skill, gotchas]
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-09-03
 status: active
 aliases: [n8n, workflow automation, n8n gotchas]
 ---
@@ -30,6 +30,17 @@ keyword filter exists, filter first and classify second.
 **Ask for a skip reason, not just a boolean.** Returning
 `{is_receipt, confidence, skip_reason}` makes the failures debuggable. A bare
 true/false gives nothing to look at when it is wrong.
+
+**In a polling loop, decide which failure you prefer, then order the writes to
+get it.** Advancing the update offset before the downstream writes loses a
+message when a run crashes. Advancing it after replays the message and applies
+the side effect twice. For anything decrementing a stock count the first is the
+lesser evil, but it is a real choice and it should be a deliberate one.
+
+**A poll returns a batch, so compute against a running tally.** Two sales of the
+same product arriving in the same poll both read the same starting stock from
+the sheet and both write the same result, so the second decrement vanishes. The
+bug is invisible in single-message testing and appears the first busy day.
 
 ## Gotchas, all hit in practice
 
@@ -61,6 +72,30 @@ file. Convert the binary to base64 explicitly before building the payload.
 breaking the surrounding JSON. Build the payload in a Code node where it can be
 validated, rather than assembling raw JSON inside an expression field.
 
+**An n8n credential only works on an HTTP Request node if it declares
+`authenticate`.** `TelegramApi` declares `accessToken`, `baseUrl`, and a `test`
+block, and nothing else. Setting an HTTP Request node to "Predefined Credential
+Type -> Telegram API" therefore attaches the credential and injects nothing at
+all, sending a tokenless request. The Telegram node has no `getUpdates`
+operation either, so any polling workflow has to read the bot token from `$env`
+or hardcode it. Generalise this: before assuming a credential can drive a
+generic HTTP node, read its class and check for an `authenticate` block. `test`
+is not the same thing, it only powers the "test connection" button.
+
+**A self-hosted n8n container with no volume on `/home/node/.n8n` loses
+everything on recreate**, and there is a catch-22 hiding behind it. `docker
+compose restart` does not re-read `env_file`, so adding an environment variable
+requires a recreate, which is exactly the operation that wipes the data. Back
+the directory up first. It includes `config`, which holds the encryption key,
+and restored credentials are undecryptable without it.
+
+**Google Sheets `autoMapInputData` lets data own the column names.** The
+mapping writes whichever input keys match existing sheet headers and silently
+ignores the rest, so a Code node can hold every column name in one config block
+instead of them being retyped across several nodes. Two caveats: an update
+node's `matchingColumns` is still static, and spreading the original row into
+the output keeps untouched columns from being blanked.
+
 ## Platform constraints
 
 **PandaDoc's API is gated behind higher-tier plans.** Lower tiers only expose
@@ -89,6 +124,8 @@ late and expensively.
 - [[personal/job-search/overview|Job Search]] - a Fiverr gig selling n8n
   workflows exists
 - [[research/ai-dropshipping|AI dropshipping]] - shares the tooling
+- [[projects/automations/overview|Automations]] - Vergel's own n8n stack,
+  where the Telegram credential and container persistence gotchas came from
 
 ## Revision History
 
@@ -97,3 +134,8 @@ late and expensively.
   workflows built months earlier. Status corrected to `active` and the gotchas
   extracted from those sessions. Client-specific detail deliberately left out;
   only the transferable technique is recorded here.
+- 2026-09-03 - Added the Telegram credential, container persistence, and
+  Google Sheets auto-mapping gotchas, plus two polling patterns. All came
+  from building the Tirz sales tracker in
+  [[projects/automations/overview|Automations]], and all were verified
+  against the running container rather than assumed.

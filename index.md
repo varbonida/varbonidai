@@ -36,6 +36,8 @@ Vergel's own, not client work.
 - [[projects/homemadeeasier/overview|Home Made Easier]] - affiliate blog, early build
 - [[projects/mycentimo/overview|MyCentimo]] - money tracking PWA, v3, not launched
 - [[projects/portfolio/overview|Portfolio Site]] - active, in build, content still placeholder
+- [[projects/automations/overview|Automations]] - self-hosted n8n stack, Telegram sales tracker built
+- [[projects/faceless-video-content/overview|Faceless Video Content]] - AI-generated Shorts/Reels; reverse-engineering workflow drafted
 
 ## Research
 

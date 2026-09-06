@@ -35,6 +35,11 @@ I know about X", so `prompts/` sits beside the wiki rather than inside it. See
   (title, description, alt text, visual brief, AI image prompt, hashtags)
   built on buyer keywords, from a product name and photo, with optional star
   rating / Amazon's Choice trust-signal badges
+- [[prompts/pinterest-pin-package-compact|Pinterest Pin Package (Compact)]] -
+  same package minus the standalone visual brief and the seasonal/social-proof
+  variants, with the design decisions folded into a self-contained image
+  prompt. Adds a voice block banning the words and tics that make Pinterest
+  copy read as AI-written
 - [[prompts/tiktok-affiliate-storyboard|TikTok Affiliate Storyboard]] - one
   9:16 image containing the 4-panel storyboard (Hook/Product/Payoff/CTA),
   production script table, voiceover script, and caption/hashtags, from a
@@ -44,6 +49,7 @@ I know about X", so `prompts/` sits beside the wiki rather than inside it. See
 
 ## Recently Added
 
+- 2026-09-06 - [[prompts/pinterest-pin-package-compact|Pinterest Pin Package (Compact)]]
 - 2026-08-29 - [[prompts/tiktok-affiliate-video-generation|TikTok Affiliate Video Generation]]
 - 2026-08-29 - [[prompts/tiktok-affiliate-storyboard|TikTok Affiliate Storyboard]]
 - 2026-08-29 - [[prompts/pinterest-pin-package|Pinterest Pin Package]]
